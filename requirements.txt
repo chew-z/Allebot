@@ -1,0 +1,10 @@
+apiai
+configparser
+fbmq
+flask
+flask-oauthlib
+jinja2
+pyowm
+requests
+requests-oauthlib
+zeep
