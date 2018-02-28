@@ -1,11 +1,11 @@
-apiai
+# apiai
 configparser
-fbmq
+# fbmq
 flask
-flask-oauthlib
+# flask-oauthlib
 gunicorn
-jinja2
-pyowm
-requests
-requests-oauthlib
+# jinja2
+# pyowm
+# requests
+# requests-oauthlib
 zeep
