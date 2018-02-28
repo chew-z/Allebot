@@ -3,6 +3,7 @@ configparser
 fbmq
 flask
 flask-oauthlib
+gunicorn
 jinja2
 pyowm
 requests
