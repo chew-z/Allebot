@@ -29,6 +29,12 @@ filterOptionsList = {'item':
                           }
                      }
 
+def magicDecode(var):
+    """Decode unicode to string."""
+    if var:
+        var = var.encode('utf8')
+    return var
+
 
 wynik = client.service.doGetItemsList(
     webAPI, countryId, filterOptions=filterOptionsList, resultScope=3, resultSize=10)
