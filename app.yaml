@@ -1,5 +1,6 @@
 runtime: python
-vm: true
+env: flex
+
 # entrypoint: python main.py
 entrypoint: gunicorn -b :$PORT main:app
 

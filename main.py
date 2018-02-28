@@ -10,7 +10,7 @@ from flask.json import jsonify
 from zeep import Client
 import configparser
 import logging
-
+import os
 
 config = configparser.ConfigParser()
 config.read('allegro.conf')
@@ -32,13 +32,16 @@ def hello():
 
 @app.route('/search')
 def search():
+    query = request.args.get('q', default = 'iphone', type = str)
     category = request.args.get('cat', default = 2, type = int)
     condition = request.args.get('condition', default = 'used', type = str)
-    search = request.args.get('q', default = 'iphone', type = str)
-    result = alleSearch(category, condition, search)
+    size = request.args.get('size', default = 5, type = int)
+    logging.info("{} {} {} {}".format(query, category, condition, size))
+    result = alleSearch(query, category, condition, size)
     return(jsonify(result))
 
-def alleSearch(category='2', condition='used', search='iphone'):
+
+def alleSearch(q, category, condition, size):
 
     filterOptionsList = {'item':
             {'filterId': 'category',
@@ -50,24 +53,31 @@ def alleSearch(category='2', condition='used', search='iphone'):
                 },
             'item':
             {'filterId': 'search',
-                'filterValueId': search
+                'filterValueId': q
                 }
             }
 
     wynik = client.service.doGetItemsList(
-            webAPI, countryId, filterOptions=filterOptionsList, resultScope=3, resultSize=10)
+            webAPI, countryId, filterOptions=filterOptionsList, resultScope=3, resultSize=size)
     logging.info("Otrzymano %d wynikow." % wynik.itemsCount)
     l = list()
-    for item in wynik.itemsList['item']:
-        logging.info(item.itemTitle, '---', item.timeToEnd, '---', item.priceInfo['item'][0]['priceValue'])
-        logging.info('https://allegro.pl/i' + str(item.itemId) + '.html')
-        d = { 
-                'aukcja': item.itemTitle,
-                u'czas do końca': item.timeToEnd,
-                'aktualna cena': item.priceInfo['item'][0]['priceValue'],
-                'link': 'https://allegro.pl/i' + str(item.itemId) + '.html'
-                }
-        l.append(d)
+    if wynik.itemsList is not None:
+        for item in wynik.itemsList['item']:
+            logging.info("{} --- {} --- {}".format(item.itemTitle, item.timeToEnd, item.priceInfo['item'][0]['priceValue']))
+            logging.info('https://allegro.pl/i' + str(item.itemId) + '.html')
+            typAukcji = ''
+            if item.priceInfo['item'][0]['priceType'] == 'buyNow':
+                typAukcji = 'kup teraz'
+            else:
+                typAukcji = 'aukcja'
+            d = { 
+                    'aukcja': item.itemTitle,
+                    'cena': item.priceInfo['item'][0]['priceValue'],
+                    'czas do końca': item.timeToEnd,
+                    'link': 'https://allegro.pl/i' + str(item.itemId) + '.html',
+                    'typ aukcji': typAukcji
+                    }
+            l.append(d)
 
     return(l)
 
@@ -76,10 +86,10 @@ def alleSearch(category='2', condition='used', search='iphone'):
 if __name__ == "__main__":
     FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
     try:
-        os.remove('allesearch.log')
+        os.remove('allequery.log')
     except BaseException:
         pass
-    logging.basicConfig(filename='allesearch.log', level=logging.DEBUG,
+    logging.basicConfig(filename='allequery.log', level=logging.DEBUG,
             format=FORMAT, datefmt='%a, %d %b %Y %H:%M:%S',)
     logging.info('--- logging started ---.')
 
