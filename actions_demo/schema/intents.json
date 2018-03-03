@@ -1,0 +1,88 @@
+[
+    {
+        "name": "SearchIphone",
+        "auto": true,
+        "contexts": [],
+        "templates": [],
+        "userSays": [
+            {
+                "data": [
+                    {
+                        "text": "iphone",
+                        "userDefined": false
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "search iphone",
+                        "userDefined": false
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            }
+        ],
+        "responses": [
+            {
+                "action": "action_func",
+                "resetContexts": false,
+                "affectedContexts": [],
+                "parameters": [],
+                "messages": []
+            }
+        ],
+        "priority": 500000,
+        "fallbackIntent": false,
+        "webhookUsed": true,
+        "webhookForSlotFilling": true,
+        "events": [],
+        "id": "d97af839-d8c6-4b12-a260-4102ebf5c3ef"
+    },
+    {
+        "name": "SearchMacbook",
+        "auto": true,
+        "contexts": [],
+        "templates": [],
+        "userSays": [
+            {
+                "data": [
+                    {
+                        "text": "macbook",
+                        "userDefined": false
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "search macbook",
+                        "userDefined": false
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            }
+        ],
+        "responses": [
+            {
+                "action": "action_func",
+                "resetContexts": false,
+                "affectedContexts": [],
+                "parameters": [],
+                "messages": []
+            }
+        ],
+        "priority": 500000,
+        "fallbackIntent": false,
+        "webhookUsed": true,
+        "webhookForSlotFilling": true,
+        "events": [],
+        "id": "7dab54ce-2717-4a55-8084-0b7fbc8b1f73"
+    }
+]

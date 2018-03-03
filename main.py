@@ -79,7 +79,8 @@ def alleSearch(q, category, condition, size):
                     'cena': item.priceInfo['item'][0]['priceValue'],
                     'czas do końca': item.timeToEnd,
                     'link': 'https://allegro.pl/i' + str(item.itemId) + '.html',
-                    'typ aukcji': typAukcji
+                    'typ aukcji': typAukcji,
+                    'zdjęcie': item.photosInfo['item'][0]['photoUrl']
                     }
             l.append(d)
     print(l)

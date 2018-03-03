@@ -42,3 +42,4 @@ print("Otrzymano %d wynikow." % wynik.itemsCount)
 for item in wynik.itemsList['item']:
     print(item.itemTitle, '---', item.timeToEnd, '---', item.priceInfo['item'][0]['priceValue'])
     print('https://allegro.pl/i' + str(item.itemId) + '.html')
+    print(item.photosInfo['item'][0]['photoUrl'])
