@@ -1,7 +1,9 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 '''
 Test of Google AppEngine
 simple webhook for searching Allegro
-- via Allegro Web API 
+- via Allegro Web API
 - uses zeep
 - returns item url
 '''
@@ -23,7 +25,9 @@ client = Client(url)
 
 
 app = Flask(__name__)
-
+# https://stackoverflow.com/questions/36378441/
+# preserve Unicode in jsonify
+app.config['JSON_AS_ASCII'] = False
 
 @app.route("/")
 def hello():
@@ -70,7 +74,7 @@ def alleSearch(q, category, condition, size):
                 typAukcji = 'kup teraz'
             else:
                 typAukcji = 'aukcja'
-            d = { 
+            d = {
                     'aukcja': item.itemTitle,
                     'cena': item.priceInfo['item'][0]['priceValue'],
                     'czas do końca': item.timeToEnd,
@@ -78,7 +82,7 @@ def alleSearch(q, category, condition, size):
                     'typ aukcji': typAukcji
                     }
             l.append(d)
-
+    print(l)
     return(l)
 
 

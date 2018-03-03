@@ -2,6 +2,7 @@
 configparser
 # fbmq
 flask
+flask-assistant
 # flask-oauthlib
 gunicorn
 # jinja2
