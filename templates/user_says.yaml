@@ -11,35 +11,35 @@
 #    - red: sys.color
 
 
-
-give-color:
-
+SearchIphone:
   UserSays:
-  - my color is blue
-  - Its blue
-  - I like red
-  - My favorite color is red
-  - blue
-  
+  - iphone
+  - search iphone
   Annotations:
-  - blue: sys.color
-  - red: sys.color
+    - phone: search_item
 
-greeting:
+SearchMacbook:
   UserSays:
-    - hi
-    - hello
-    - start
-    - begin
-    - launch
+  - macbook
+  - search macbook
+  Annotations:
+    - macboo: search_item
 
-give-gender:
+SearchAnything:
   UserSays:
-  - male
-  - Im a female
-  - girl
+    - search something
+    - find something
+    - find me something
+  # - search phone
+  # - search smartphone
+  # - search galaxy
+  # - search ajfon
+  # - search xperia
 
   Annotations:
-  - male: gender
-  - female: gender
-  - girl: gender
+    - something: sys.any
+  # - phone: search_item
+  # - smartphone: search_item
+  # - galaxy: search_item
+  # - ajfon: search_item
+  # - xperia: search_item
