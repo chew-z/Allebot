@@ -5,6 +5,8 @@ allebot.conf
 headers.conf
 *.conf
 
+kategorie.json
+
 bin/
 include/
 lib/
