@@ -3,7 +3,7 @@
 allegro.conf
 allebot.conf
 headers.conf
-
+*.conf
 
 bin/
 include/
