@@ -1,6 +1,5 @@
 # Template file for entities
-search_item:
- - iphone: ['iphone', 'iphone 6', 'iphone 8x', 'ajfon']
- - xperia: ['xz', 'xz premium', 'sony xperia']
- - macbook: ['mac', 'macbook pro', 'laptop apple']
- - galaxy: ['s7', 's8', 'samsung galaxy', 'samsung s8']
+search_category:
+ - smartphone: ['smartphone', 'iphone', 'iphone 6', 'iphone 8x', 'ajfon', 'xz', 'xz premium', 'sony xperia', 's7', 's8', 'samsung galaxy', 'samsung s8']
+ - laptop: ['mac', 'macbook pro', 'laptop', 'lenovo']
+ - bike: ['bike', 'rower', 'bianci', 'koga miyata', 'peugeot']

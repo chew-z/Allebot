@@ -112,3 +112,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+flask_assistant/*
+schema/*
+dialog-webhook copy.py

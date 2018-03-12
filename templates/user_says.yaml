@@ -1,41 +1,57 @@
 # Template for defining UserSays examples
 
-# give-color-intent:
+# SearchIphone:
+#   UserSays:
+#   - iphone
+#   - search iphone
+#   Annotations:
+#     - phone: search_item
 
-#  UserSays:
-#    - My color is blue
-#    - red is my favorite color
+# SearchMacbook:
+#   UserSays:
+#   - macbook
+#   - search macbook
+#   Annotations:
+#     - macbook: search_item
 
-#  Annotations:
-#    - blue: sys.color     # maps param value -> entity
-#    - red: sys.color
-
-
-SearchIphone:
+Welcome:
   UserSays:
-  - iphone
-  - search iphone
-  Annotations:
-    - phone: search_item
+    - Hi Allebot
+    - Hello Allebot
+    - Wakeup Allebot
 
-SearchMacbook:
+Declare-category:
   UserSays:
-  - macbook
-  - search macbook
+    - I want new smartphone
+    - Looking for laptop
+    - I am looking for a bike
+    # - smartphone
+    # - laptop
+    # - bike
   Annotations:
-    - macboo: search_item
+    - something: search_category
+    # - smartphone: search_category
+    # - laptop: search_category
+    # - bike: search_category
+
+Confirm-category:
+  UserSays:
+    - yes
+    - no
+  Annotations:
+    - yes: answer
+    - no: answer
 
 SearchAnything:
   UserSays:
     - search something
     - find something
     - find me something
-  # - search phone
-  # - search smartphone
-  # - search galaxy
-  # - search ajfon
-  # - search xperia
-
+    # - search phone
+    # - search smartphone
+    # - search galaxy
+    # - search ajfon
+    # - search xperia
   Annotations:
     - something: sys.any
   # - phone: search_item

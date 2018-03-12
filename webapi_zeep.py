@@ -125,29 +125,8 @@ if __name__ == "__main__":
         pass
     logging.basicConfig(filename='webapi_zeep.log', level=logging.DEBUG,
             format=FORMAT, datefmt='%a, %d %b %Y %H:%M:%S',)
-    # Turn off default zeep DEBUG logging
-    logging.config.dictConfig({
-    'version': 1,
-    'formatters': {
-        'verbose': {
-            'format': '%(name)s: %(message)s'
-        }
-    },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
-    },
-    'loggers': {
-        'zeep.transports': {
-            'level': 'INFO',
-            'propagate': True,
-            'handlers': ['console'],
-        },
-    }
-    })
+    # Turn off default zeep.transports DEBUG logging
+    logging.getLogger('zeep.transports').setLevel(logging.INFO)
     logging.info('--- logging started ---.')
 
     pp = pprint.PrettyPrinter(indent=4)
