@@ -17,7 +17,7 @@ import os
 import pprint
 
 config = configparser.ConfigParser()
-config.read('allegro.conf')
+config.read('allebot.conf')
 allegro_conf = config['Allegro']
 
 countryId = 1
@@ -43,7 +43,7 @@ def alleKategorieGet():
     logging.info('Couldn\'t find kategorie.json - getting from WebAPI')
     wynik = client.service.doGetCatsData(webapiKey=webAPI, countryId=countryId, onlyLeaf=False)
     categories = wynik['catsList']['item']
-    j = [{"catId": i['catId'], "catName": i['catName'], "catParent": i['catParent'], "catPosition": i['catPosition']} for i in w]
+    j = [{"catId": i['catId'], "catName": i['catName'], "catParent": i['catParent'], "catPosition": i['catPosition']} for i in categories]
     with open('kategorie.json', 'w') as outfile:
       json.dump(j, outfile)
     logging.info('Categories saved to kategorie.json')
