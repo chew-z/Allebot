@@ -106,7 +106,7 @@ def confirm_category(answer):
         return ask('I dont think I understood. What do you want to look for?').suggest(
         'smartphone', 'laptop', 'bike')
     else:
-        return ask('OK. --{}-- What exactly are you looking for?'.format(category))
+        return ask('OK. What exactly are you looking for?')
 
 
 @assist.action('SearchAnything', mapping={'search_item': 'sys.any'})

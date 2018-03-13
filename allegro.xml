@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Body><ns0:DoGetItemsListRequest xmlns:ns0="https://webapi.allegro.pl/service.php"><ns0:webapiKey>9ff41315</ns0:webapiKey><ns0:countryId>1</ns0:countryId><ns0:filterOptions><ns0:item><ns0:filterId>search</ns0:filterId><ns0:filterValueId><ns0:item>iphone</ns0:item></ns0:filterValueId></ns0:item></ns0:filterOptions><ns0:resultSize>10</ns0:resultSize><ns0:resultScope>3</ns0:resultScope></ns0:DoGetItemsListRequest></soap-env:Body></soap-env:Envelope>
+
+doGetItemsList(webapiKey: xsd:string, countryId: xsd:int, filterOptions: ns0:ArrayOfFilteroptionstype, sortOptions: ns0:SortOptionsType, resultSize: xsd:int, resultOffset: xsd:int, resultScope: xsd:int) -> itemsCount: xsd:int, itemsFeaturedCount: xsd:int, itemsList: ns0:ArrayOfItemslisttype, categoriesList: ns0:CategoriesListType, filtersList: ns0:ArrayOfFilterslisttype, filtersRejected: ns0:ArrayOfString
+
+ns0:ArrayOfFilteroptionstype(item: ns0:FilterOptionsType[])
+
+ns0:FilterOptionsType(filterId: xsd:string, filterValueId: ns0:ArrayOfString, filterValueRange: ns0:RangeValueType)
+
+<ns0:filterOptions>
+    <ns0:item>
+        <ns0:filterId>search</ns0:filterId>
+        <ns0:filterValueId><ns0:item>iphone</ns0:item></ns0:filterValueId>
+    </ns0:item>
+</ns0:filterOptions>

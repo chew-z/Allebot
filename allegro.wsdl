@@ -1,0 +1,597 @@
+
+Prefixes:
+     xsd: http://www.w3.org/2001/XMLSchema
+     ns0: https://webapi.allegro.pl/service.php
+
+Global elements:
+     
+     ns0:DoAddPackageInfoToPostBuyFormRequest(sessionId: xsd:string, transactionId: xsd:long, packageInfo: ns0:ArrayOfPackageinfostruct)
+     ns0:DoAddToBlackListRequest(sessionHandle: xsd:string, usersBlackListArray: ns0:ArrayOfUserblackliststruct)
+     ns0:DoBidItemRequest(sessionHandle: xsd:string, bidItId: xsd:long, bidUserPrice: xsd:float, bidQuantity: xsd:long, bidBuyNow: xsd:long, pharmacyRecipientData: ns0:PharmacyRecipientDataStruct, variantId: xsd:string)
+     ns0:DoCancelBidItemRequest(sessionHandle: xsd:string, cancelItemId: xsd:long, cancelBidsArray: ns0:ArrayOfInt, cancelBidsReason: xsd:string, cancelAddToBlackList: xsd:long)
+     ns0:DoCancelRefundFormRequest(sessionId: xsd:string, refundId: xsd:int)
+     ns0:DoCancelRefundWarningRequest(sessionId: xsd:string, refundId: xsd:int)
+     ns0:DoCancelTransactionRequest(sessionId: xsd:string, transactionId: xsd:long)
+     ns0:DoChangeItemFieldsRequest(sessionId: xsd:string, itemId: xsd:long, fieldsToModify: ns0:ArrayOfFieldsvalue, fieldsToRemove: ns0:ArrayOfInt, previewOnly: xsd:int, variants: ns0:ArrayOfVariantstruct, tags: ns0:ArrayOfTagnamestruct, afterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct, additionalServicesGroup: xsd:string)
+     ns0:DoChangePriceItemRequest(sessionHandle: xsd:string, itemId: xsd:long, newStartingPrice: xsd:float, newReservePrice: xsd:float, newBuyNowPrice: xsd:float, newAdvertisementPrice: xsd:float)
+     ns0:DoChangeQuantityItemRequest(sessionHandle: xsd:string, itemId: xsd:long, newItemQuantity: xsd:int)
+     ns0:DoCheckItemDescriptionRequest(sessionId: xsd:string, descriptionContent: xsd:string)
+     ns0:DoCheckNewAuctionExtRequest(sessionHandle: xsd:string, fields: ns0:ArrayOfFieldsvalue, variants: ns0:ArrayOfVariantstruct, tags: ns0:ArrayOfTagnamestruct, afterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct)
+     ns0:DoFinishItemRequest(sessionHandle: xsd:string, finishItemId: xsd:long, finishCancelAllBids: xsd:int, finishCancelReason: xsd:string)
+     ns0:DoFinishItemsRequest(sessionHandle: xsd:string, finishItemsList: ns0:ArrayOfFinishitemsstruct)
+     ns0:DoGetArchiveRefundsListRequest(sessionId: xsd:string, itemId: xsd:long)
+     ns0:DoGetBidItem2Request(sessionHandle: xsd:string, itemId: xsd:long)
+     ns0:DoGetBlackListUsersRequest(sessionHandle: xsd:string)
+     ns0:DoGetCategoryPathRequest(sessionId: xsd:string, categoryId: xsd:int)
+     ns0:DoGetCatsDataCountRequest(countryId: xsd:int, localVersion: xsd:long, webapiKey: xsd:string, onlyLeaf: xsd:boolean)
+     ns0:DoGetCatsDataLimitRequest(countryId: xsd:int, localVersion: xsd:long, webapiKey: xsd:string, offset: xsd:int, packageElement: xsd:int, onlyLeaf: xsd:boolean)
+     ns0:DoGetCatsDataRequest(countryId: xsd:int, localVersion: xsd:long, webapiKey: xsd:string, onlyLeaf: xsd:boolean)
+     ns0:DoGetCountriesRequest(countryCode: xsd:int, webapiKey: xsd:string)
+     ns0:DoGetDealsRequest(sessionHandle: xsd:string, itemId: xsd:long, buyerId: xsd:int)
+     ns0:DoGetFilledPostBuyFormsRequest(sessionId: xsd:string, paymentType: xsd:int, userRole: xsd:int, fillingTimeFrom: xsd:long, fillingTimeTo: xsd:long)
+     ns0:DoGetFreeDeliveryAmountRequest(userId: xsd:int, countryId: xsd:int, webapiKey: xsd:string)
+     ns0:DoGetItemFieldsRequest(sessionId: xsd:string, itemId: xsd:long)
+     ns0:DoGetItemsImagesRequest(sessionHandle: xsd:string, itemsArray: ns0:ArrayOfItemgetimage, imageType: xsd:int)
+     ns0:DoGetItemsInfoRequest(sessionHandle: xsd:string, itemsIdArray: ns0:ArrayOfLong, getDesc: xsd:int, getImageUrl: xsd:int, getAttribs: xsd:int, getPostageOptions: xsd:int, getCompanyInfo: xsd:int, getProductInfo: xsd:int, getAfterSalesServiceConditions: xsd:int, getEan: xsd:int, getAdditionalServicesGroup: xsd:int)
+     ns0:DoGetItemsListRequest(webapiKey: xsd:string, countryId: xsd:int, filterOptions: ns0:ArrayOfFilteroptionstype, sortOptions: ns0:SortOptionsType, resultSize: xsd:int, resultOffset: xsd:int, resultScope: xsd:int)
+     ns0:DoGetMessageToBuyerRequest(sessionId: xsd:string, itemId: xsd:long)
+     ns0:DoGetMyAddressesRequest(sessionId: xsd:string)
+     ns0:DoGetMyBidItemsRequest(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int)
+     ns0:DoGetMyCurrentShipmentPriceTypeRequest(sessionId: xsd:string)
+     ns0:DoGetMyDataRequest(sessionHandle: xsd:string)
+     ns0:DoGetMyFutureItemsRequest(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, filterOptions: ns0:FutureFilterOptionsStruct, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int)
+     ns0:DoGetMyIncomingPaymentsRefundsRequest(sessionHandle: xsd:string, buyerId: xsd:int, itemId: xsd:long, limit: xsd:int, offset: xsd:int)
+     ns0:DoGetMyIncomingPaymentsRequest(sessionHandle: xsd:string, buyerId: xsd:int, itemId: xsd:long, transRecvDateFrom: xsd:long, transRecvDateTo: xsd:long, transPageLimit: xsd:int, transOffset: xsd:int, strictedSearch: xsd:int)
+     ns0:DoGetMyNotSoldItemsRequest(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, filterOptions: ns0:NotSoldFilterOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int)
+     ns0:DoGetMyNotWonItemsRequest(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int)
+     ns0:DoGetMyPaymentsInfoRequest(sessionId: xsd:string)
+     ns0:DoGetMyPaymentsRefundsRequest(sessionHandle: xsd:string, sellerId: xsd:int, itemId: xsd:long, limit: xsd:int, offset: xsd:int)
+     ns0:DoGetMyPaymentsRequest(sessionId: xsd:string, sellerId: xsd:int, itemId: xsd:long, paymentTimeFrom: xsd:long, paymentTimeTo: xsd:long, pageSize: xsd:int, pageNumber: xsd:int, strictedSearch: xsd:int)
+     ns0:DoGetMyPayoutsDetailsRequest(sessionId: xsd:string, payoutId: xsd:int, limit: xsd:int, offset: xsd:int)
+     ns0:DoGetMyPayoutsRequest(sessionHandle: xsd:string, transCreateDateFrom: xsd:long, transCreateDateTo: xsd:long, transPageLimit: xsd:int, transOffset: xsd:int)
+     ns0:DoGetMySellItemsRequest(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, filterOptions: ns0:SellFilterOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int)
+     ns0:DoGetMySoldItemsRequest(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, filterOptions: ns0:SoldFilterOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int)
+     ns0:DoGetMyWonItemsRequest(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int)
+     ns0:DoGetPaymentMethodsRequest(sessionId: xsd:string, itemIds: ns0:ArrayOfLong)
+     ns0:DoGetPostBuyDataRequest(sessionHandle: xsd:string, itemsArray: ns0:ArrayOfLong, buyerFilterArray: ns0:ArrayOfLong)
+     ns0:DoGetPostBuyFormsDataForBuyersRequest(sessionId: xsd:string, transactionsIdsArray: ns0:ArrayOfLong)
+     ns0:DoGetPostBuyFormsDataForSellersRequest(sessionId: xsd:string, transactionsIdsArray: ns0:ArrayOfLong)
+     ns0:DoGetPostBuyFormsIdsRequest(sessionId: xsd:string, filterOptions: ns0:ArrayOfFilteroptionstype, resultSize: xsd:int, resultOffset: xsd:int)
+     ns0:DoGetPostBuyItemInfoRequest(sessionId: xsd:string, itemIds: ns0:ArrayOfLong)
+     ns0:DoGetRefundsDealsRequest(sessionId: xsd:string, filterOptions: ns0:ArrayOfFilteroptionstype, sortOrder: xsd:string, resultSize: xsd:int, resultOffset: xsd:int)
+     ns0:DoGetRefundsListRequest(sessionId: xsd:string, filterOptions: ns0:ArrayOfFilteroptionstype, resultSize: xsd:int, resultOffset: xsd:int)
+     ns0:DoGetRefundsReasonsRequest(sessionId: xsd:string, dealId: xsd:int)
+     ns0:DoGetRelatedItemsRequest(sessionId: xsd:string, itemIds: ns0:ArrayOfLong)
+     ns0:DoGetSellFormFieldsForCategoryRequest(webapiKey: xsd:string, countryId: xsd:int, categoryId: xsd:int)
+     ns0:DoGetSessionHandleForWidgetRequest(webapiKey: xsd:string, countryCode: xsd:int)
+     ns0:DoGetShipmentDataForRelatedItemsRequest(sessionId: xsd:string, itemIds: ns0:ArrayOfLong)
+     ns0:DoGetShipmentDataRequest(countryId: xsd:int, webapiKey: xsd:string)
+     ns0:DoGetShipmentPriceTypesRequest(countryId: xsd:int, webapiKey: xsd:string)
+     ns0:DoGetShopsTagsRequest(sessionId: xsd:string)
+     ns0:DoGetSiteJournalDealsInfoRequest(sessionId: xsd:string, journalStart: xsd:long)
+     ns0:DoGetSiteJournalDealsRequest(sessionId: xsd:string, journalStart: xsd:long)
+     ns0:DoGetSiteJournalInfoRequest(sessionHandle: xsd:string, startingPoint: xsd:long, infoType: xsd:int)
+     ns0:DoGetSiteJournalRequest(sessionHandle: xsd:string, startingPoint: xsd:long, infoType: xsd:int)
+     ns0:DoGetStatesInfoRequest(countryCode: xsd:int, webapiKey: xsd:string)
+     ns0:DoGetSystemTimeRequest(countryId: xsd:int, webapiKey: xsd:string)
+     ns0:DoGetTransactionsIDsRequest(sessionHandle: xsd:string, itemsIdArray: ns0:ArrayOfLong, userRole: xsd:string, shipmentIdArray: ns0:ArrayOfLong)
+     ns0:DoGetUserIDRequest(countryId: xsd:int, userLogin: xsd:string, userEmail: xsd:string, webapiKey: xsd:string)
+     ns0:DoGetUserLoginRequest(countryId: xsd:int, userId: xsd:int, webapiKey: xsd:string)
+     ns0:DoLoginEncRequest(userLogin: xsd:string, userHashPassword: xsd:string, countryCode: xsd:int, webapiKey: xsd:string, localVersion: xsd:long)
+     ns0:DoLoginRequest(userLogin: xsd:string, userPassword: xsd:string, countryCode: xsd:int, webapiKey: xsd:string, localVersion: xsd:long)
+     ns0:DoLoginWithAccessTokenRequest(accessToken: xsd:string, countryCode: xsd:int, webapiKey: xsd:string)
+     ns0:DoMyAccount2Request(sessionHandle: xsd:string, accountType: xsd:string, offset: xsd:int, itemsArray: ns0:ArrayOfLong, limit: xsd:int)
+     ns0:DoMyAccountItemsCountRequest(sessionHandle: xsd:string, accountType: xsd:string, itemsArray: ns0:ArrayOfLong)
+     ns0:DoMyBillingItemRequest(sessionHandle: xsd:string, itemId: xsd:long, option: xsd:string)
+     ns0:DoMyBillingRequest(sessionHandle: xsd:string)
+     ns0:DoMyContactRequest(sessionHandle: xsd:string, auctionIdList: ns0:ArrayOfLong, offset: xsd:int, desc: xsd:int)
+     ns0:DoNewAuctionExtRequest(sessionHandle: xsd:string, fields: ns0:ArrayOfFieldsvalue, itemTemplateId: xsd:int, localId: xsd:int, itemTemplateCreate: ns0:ItemTemplateCreateStruct, variants: ns0:ArrayOfVariantstruct, tags: ns0:ArrayOfTagnamestruct, afterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct, additionalServicesGroup: xsd:string)
+     ns0:DoQueryAllSysStatusRequest(countryId: xsd:int, webapiKey: xsd:string)
+     ns0:DoQuerySysStatusRequest(sysvar: xsd:int, countryId: xsd:int, webapiKey: xsd:string)
+     ns0:DoRemoveFromBlackListRequest(sessionHandle: xsd:string, usersIdArray: ns0:ArrayOfLong)
+     ns0:DoRequestCancelBidRequest(sessionHandle: xsd:string, requestItemId: xsd:long, requestCancelReason: xsd:string)
+     ns0:DoRequestPayoutRequest(sessionId: xsd:string)
+     ns0:DoRequestSurchargeRequest(sessionHandle: xsd:string, transactionId: xsd:long, surchargeValue: xsd:float, surchargeMessageToBuyer: xsd:string)
+     ns0:DoSellSomeAgainInShopRequest(sessionHandle: xsd:string, sellItemsArray: ns0:ArrayOfLong, sellStartingTime: xsd:long, sellShopDuration: xsd:int, sellShopOptions: xsd:int, sellProlongOptions: xsd:int, sellShopCategory: xsd:long, localIds: ns0:ArrayOfInt)
+     ns0:DoSellSomeAgainRequest(sessionHandle: xsd:string, sellItemsArray: ns0:ArrayOfLong, sellStartingTime: xsd:long, sellAuctionDuration: xsd:int, sellOptions: xsd:int, localIds: ns0:ArrayOfInt, sellProlongOptions: xsd:int)
+     ns0:DoSendEmailToUserRequest(sessionHandle: xsd:string, mailToUserItemId: xsd:long, mailToUserReceiverId: xsd:long, mailToUserSubjectId: xsd:int, mailToUserOption: xsd:int, mailToUserMessage: xsd:string)
+     ns0:DoSendPostBuyFormRequest(sessionId: xsd:string, newPostBuyFormSeller: ns0:ArrayOfNewpostbuyformsellerstruct, newPostBuyFormCommon: ns0:NewPostBuyFormCommonStruct)
+     ns0:DoSendRefundFormRequest(sessionId: xsd:string, dealId: xsd:int, reasonId: xsd:int, refundQuantity: xsd:int)
+     ns0:DoSetFreeDeliveryAmountRequest(sessionId: xsd:string, activeFlag: xsd:int, freeDeliveryAmount: xsd:float)
+     ns0:DoSetShipmentPriceTypeRequest(sessionId: xsd:string, shipmentPriceTypeId: xsd:int)
+     ns0:DoShowItemInfoExtRequest(sessionHandle: xsd:string, itemId: xsd:long, getDesc: xsd:int, getImageUrl: xsd:int, getAttribs: xsd:int, getPostageOptions: xsd:int, getCompanyInfo: xsd:int, getProductInfo: xsd:int, getAfterSalesServiceConditions: xsd:int, getEan: xsd:int, getAdditionalServicesGroup: xsd:int)
+     ns0:DoShowUserRequest(webapiKey: xsd:string, countryId: xsd:int, userId: xsd:long, userLogin: xsd:string)
+     ns0:DoVerifyItemRequest(sessionHandle: xsd:string, localId: xsd:int)
+     ns0:doAddPackageInfoToPostBuyFormResponse(postBuyFormPackageInfo: ns0:PostBuyFormPackageInfoStruct)
+     ns0:doAddToBlackListResponse(userBlackListResultsArr: ns0:ArrayOfUserblacklistaddresultstruct)
+     ns0:doBidItemResponse(bidPrice: xsd:string)
+     ns0:doCancelBidItemResponse(cancelBidValue: xsd:int, cancelledBids: ns0:ArrayOfInt, notCancelledBids: ns0:ArrayOfInt)
+     ns0:doCancelRefundFormResponse(cancellationResult: xsd:boolean)
+     ns0:doCancelRefundWarningResponse(cancellationResult: xsd:boolean)
+     ns0:doCancelTransactionResponse(cancellationResult: xsd:int)
+     ns0:doChangeItemFieldsResponse(changedItem: ns0:ChangedItemStruct)
+     ns0:doChangePriceItemResponse(itemInfo: xsd:string, itemId: xsd:long)
+     ns0:doChangeQuantityItemResponse(itemId: xsd:long, itemInfo: xsd:string, itemQuantityLeft: xsd:int, itemQuantitySold: xsd:int)
+     ns0:doCheckItemDescriptionResponse(itemDescription: ns0:ItemDescriptionStruct)
+     ns0:doCheckNewAuctionExtResponse(itemPrice: xsd:string, itemPriceDesc: xsd:string, itemIsAllegroStandard: xsd:int)
+     ns0:doFinishItemResponse(finishValue: xsd:int)
+     ns0:doFinishItemsResponse(finishItemsSucceed: ns0:ArrayOfLong, finishItemsFailed: ns0:ArrayOfFinishfailurestruct)
+     ns0:doGetArchiveRefundsListResponse(refundsCount: xsd:int, refundsList: ns0:ArrayOfArchiverefundslisttypestruct)
+     ns0:doGetBidItem2Response(biditemList: ns0:ArrayOfBidliststruct2)
+     ns0:doGetBlackListUsersResponse(blackListUsers: ns0:ArrayOfBlackliststruct)
+     ns0:doGetCategoryPathResponse(categoryPath: ns0:ArrayOfCategorydata)
+     ns0:doGetCatsDataCountResponse(catsCount: xsd:int, verKey: xsd:long, verStr: xsd:string)
+     ns0:doGetCatsDataLimitResponse(catsList: ns0:ArrayOfCatinfotype, verKey: xsd:long, verStr: xsd:string)
+     ns0:doGetCatsDataResponse(catsList: ns0:ArrayOfCatinfotype, verKey: xsd:long, verStr: xsd:string)
+     ns0:doGetCountriesResponse(countryArray: ns0:ArrayOfCountryinfotype)
+     ns0:doGetDealsResponse(dealsList: ns0:ArrayOfDealsstruct)
+     ns0:doGetFilledPostBuyFormsResponse(filledPostBuyForms: ns0:FilledPostBuyFormsStruct)
+     ns0:doGetFreeDeliveryAmountResponse(freeDeliveryAmount: xsd:float, activeFlag: xsd:int)
+     ns0:doGetItemFieldsResponse(itemFields: ns0:ArrayOfFieldsvalue, afterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct, additionalServicesGroup: xsd:string)
+     ns0:doGetItemsImagesResponse(get_items_images_result: ns0:ArrayOfItemimagesstruct)
+     ns0:doGetItemsInfoResponse(arrayItemListInfo: ns0:ArrayOfIteminfostruct, arrayItemsNotFound: ns0:ArrayOfLong, arrayItemsAdminKilled: ns0:ArrayOfLong)
+     ns0:doGetItemsListResponse(itemsCount: xsd:int, itemsFeaturedCount: xsd:int, itemsList: ns0:ArrayOfItemslisttype, categoriesList: ns0:CategoriesListType, filtersList: ns0:ArrayOfFilterslisttype, filtersRejected: ns0:ArrayOfString)
+     ns0:doGetMessageToBuyerResponse(messageToBuyer: ns0:MessageToBuyerStruct)
+     ns0:doGetMyAddressesResponse(addressesInfo: ns0:ArrayOfAddressinfostruct)
+     ns0:doGetMyBidItemsResponse(bidItemsCounter: xsd:int, bidItemsList: ns0:ArrayOfBiditemstruct)
+     ns0:doGetMyCurrentShipmentPriceTypeResponse(shipmentPriceTypeId: xsd:int)
+     ns0:doGetMyDataResponse(userData: ns0:UserDataStruct, invoiceData: ns0:InvoiceDataStruct, companyExtraData: ns0:CompanyExtraDataStruct, companySecondAddress: ns0:CompanySecondAddressStruct, pharmacyData: ns0:PharmacyDataStruct, alcoholData: ns0:AlcoholDataStruct, relatedPersons: ns0:RelatedPersonsStruct)
+     ns0:doGetMyFutureItemsResponse(futureItemsCounter: xsd:int, futureItemsList: ns0:ArrayOfFutureitemstruct)
+     ns0:doGetMyIncomingPaymentsRefundsResponse(payTransIncomeRefunds: ns0:ArrayOfUserincomingpaymentrefundsstruct)
+     ns0:doGetMyIncomingPaymentsResponse(payTransIncome: ns0:ArrayOfUserincomingpaymentstruct)
+     ns0:doGetMyNotSoldItemsResponse(notSoldItemsCounter: xsd:int, notSoldItemsList: ns0:ArrayOfNotsolditemstruct)
+     ns0:doGetMyNotWonItemsResponse(notWonItemsCounter: xsd:int, notWonItemsList: ns0:ArrayOfNotwonitemstruct)
+     ns0:doGetMyPaymentsInfoResponse(paymentsInfo: ns0:PaymentsInfoStruct)
+     ns0:doGetMyPaymentsRefundsResponse(payTransPaymentRefunds: ns0:ArrayOfUserpaymentrefundsstruct)
+     ns0:doGetMyPaymentsResponse(payTransPayment: ns0:ArrayOfUserpaymentstruct)
+     ns0:doGetMyPayoutsDetailsResponse(paymentsCount: xsd:int, payments: ns0:ArrayOfPayoutpaymentsstruct, refundsFromCount: xsd:int, refundFrom: ns0:ArrayOfPayoutrefundfromstruct, refundsToCount: xsd:int, refundTo: ns0:ArrayOfPayoutrefundtostruct)
+     ns0:doGetMyPayoutsResponse(payTransPayout: ns0:ArrayOfUserpayoutstruct)
+     ns0:doGetMySellItemsResponse(sellItemsCounter: xsd:int, sellItemsList: ns0:ArrayOfSellitemstruct)
+     ns0:doGetMySoldItemsResponse(soldItemsCounter: xsd:int, soldItemsList: ns0:ArrayOfSolditemstruct)
+     ns0:doGetMyWonItemsResponse(wonItemsCounter: xsd:int, wonItemsList: ns0:ArrayOfWonitemstruct)
+     ns0:doGetPaymentMethodsResponse(paymentMethods: ns0:ArrayOfPaymentmethodstruct)
+     ns0:doGetPostBuyDataResponse(itemsPostBuyData: ns0:ArrayOfItempostbuydatastruct)
+     ns0:doGetPostBuyFormsDataForBuyersResponse(postBuyFormDataForBuyers: ns0:ArrayOfPostbuyformforbuyersdatastruct)
+     ns0:doGetPostBuyFormsDataForSellersResponse(postBuyFormData: ns0:ArrayOfPostbuyformdatastruct)
+     ns0:doGetPostBuyFormsIdsResponse(formsCount: xsd:int, formsIds: ns0:ArrayOfLong, filtersList: ns0:ArrayOfFilterslisttype)
+     ns0:doGetPostBuyItemInfoResponse(itemPostBuyFormInfo: ns0:ArrayOfPostbuyiteminfostruct)
+     ns0:doGetRefundsDealsResponse(dealsCount: xsd:int, dealsList: ns0:ArrayOfRefundsdealslisttype, filtersList: ns0:ArrayOfFilterslisttype)
+     ns0:doGetRefundsListResponse(refundsCount: xsd:int, refundsList: ns0:ArrayOfRefundlisttype, filtersList: ns0:ArrayOfFilterslisttype)
+     ns0:doGetRefundsReasonsResponse(reasonsCount: xsd:int, reasonsList: ns0:ArrayOfReasoninfotype)
+     ns0:doGetRelatedItemsResponse(relatedItems: ns0:RelatedItemsStruct)
+     ns0:doGetSellFormFieldsForCategoryResponse(sellFormFieldsForCategory: ns0:SellFormFieldsForCategoryStruct)
+     ns0:doGetSessionHandleForWidgetResponse(sessionHandle: xsd:string, serverTime: xsd:long)
+     ns0:doGetShipmentDataForRelatedItemsResponse(relatedItemsShipmentData: ns0:RelatedItemsShipmentDataStruct)
+     ns0:doGetShipmentDataResponse(shipmentDataList: ns0:ArrayOfShipmentdatastruct, localVersion: xsd:long)
+     ns0:doGetShipmentPriceTypesResponse(shipmentPriceTypes: ns0:ArrayOfShipmentpricetypestruct)
+     ns0:doGetShopsTagsResponse(shopsTagsCount: xsd:int, shopsTags: ns0:ArrayOfShopstagtypestruct)
+     ns0:doGetSiteJournalDealsInfoResponse(siteJournalDealsInfo: ns0:SiteJournalDealsInfoStruct)
+     ns0:doGetSiteJournalDealsResponse(siteJournalDeals: ns0:ArrayOfSitejournaldealsstruct)
+     ns0:doGetSiteJournalInfoResponse(siteJournalInfo: ns0:SiteJournalInfo)
+     ns0:doGetSiteJournalResponse(siteJournalArray: ns0:ArrayOfSitejournal)
+     ns0:doGetStatesInfoResponse(statesInfoArray: ns0:ArrayOfStateinfostruct)
+     ns0:doGetSystemTimeResponse(serverTime: xsd:long)
+     ns0:doGetTransactionsIDsResponse(transactionsIdsArray: ns0:ArrayOfLong)
+     ns0:doGetUserIDResponse(userId: xsd:int)
+     ns0:doGetUserLoginResponse(userLogin: xsd:string)
+     ns0:doLoginEncResponse(sessionHandlePart: xsd:string, userId: xsd:long, serverTime: xsd:long)
+     ns0:doLoginResponse(sessionHandlePart: xsd:string, userId: xsd:long, serverTime: xsd:long)
+     ns0:doLoginWithAccessTokenResponse(sessionHandlePart: xsd:string, userId: xsd:long, serverTime: xsd:long)
+     ns0:doMyAccount2Response(myaccountList: ns0:ArrayOfMyaccountstruct2)
+     ns0:doMyAccountItemsCountResponse(myaccountItemsCount: xsd:int)
+     ns0:doMyBillingItemResponse(entryFees: ns0:ArrayOfItembilling, endingFees: ns0:ArrayOfItembilling)
+     ns0:doMyBillingResponse(myBilling: xsd:string)
+     ns0:doMyContactResponse(mycontactList: ns0:ArrayOfMycontactlist)
+     ns0:doNewAuctionExtResponse(itemId: xsd:long, itemInfo: xsd:string, itemIsAllegroStandard: xsd:int)
+     ns0:doQueryAllSysStatusResponse(sysCountryStatus: ns0:ArrayOfSysstatustype)
+     ns0:doQuerySysStatusResponse(info: xsd:string, verKey: xsd:long)
+     ns0:doRemoveFromBlackListResponse(blackListResult: ns0:ArrayOfBlacklistresstruct)
+     ns0:doRequestCancelBidResponse(requestValue: xsd:int)
+     ns0:doRequestPayoutResponse(requestPayout: ns0:RequestPayoutStruct)
+     ns0:doRequestSurchargeResponse(surchargeResult: xsd:int)
+     ns0:doSellSomeAgainInShopResponse(itemsSellAgain: ns0:ArrayOfStructsellagain, itemsSellFailed: ns0:ArrayOfStructsellfailed, itemsSellNotFound: ns0:ArrayOfLong)
+     ns0:doSellSomeAgainResponse(itemsSellAgain: ns0:ArrayOfStructsellagain, itemsSellFailed: ns0:ArrayOfStructsellfailed, itemsSellNotFound: ns0:ArrayOfLong)
+     ns0:doSendEmailToUserResponse(mailToUserReceiverId: xsd:long, mailToUserResult: xsd:string)
+     ns0:doSendPostBuyFormResponse(postBuyForm: ns0:PostBuyFormStruct)
+     ns0:doSendRefundFormResponse(refundId: xsd:int)
+     ns0:doSetFreeDeliveryAmountResponse(responseStatus: xsd:boolean)
+     ns0:doSetShipmentPriceTypeResponse(operationResult: xsd:int)
+     ns0:doShowItemInfoExtResponse(itemListInfoExt: ns0:ItemInfoExt, itemCatPath: ns0:ArrayOfItemcatlist, itemImgList: ns0:ArrayOfItemimagelist, itemAttribList: ns0:ArrayOfAttribstruct, itemPostageOptions: ns0:ArrayOfPostagestruct, itemPaymentOptions: ns0:ItemPaymentOptions, itemCompanyInfo: ns0:CompanyInfoStruct, itemProductInfo: ns0:ProductStruct, itemVariants: xsd:string, itemAfterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct, itemAdditionalServicesGroup: xsd:string)
+     ns0:doShowUserResponse(userId: xsd:long, userLogin: xsd:string, userCountry: xsd:int, userCreateDate: xsd:long, userLoginDate: xsd:long, userRating: xsd:int, userIsNewUser: xsd:int, userNotActivated: xsd:int, userClosed: xsd:int, userBlocked: xsd:int, userTerminated: xsd:int, userHasPage: xsd:int, userIsSseller: xsd:int, userIsEco: xsd:int, userPositiveFeedback: ns0:ShowUserFeedbacks, userNegativeFeedback: ns0:ShowUserFeedbacks, userNeutralFeedback: ns0:ShowUserFeedbacks, userJuniorStatus: xsd:int, userHasShop: xsd:int, userCompanyIcon: xsd:int, userSellRatingCount: xsd:int, userSellRatingAverage: ns0:ArrayOfSellratingaveragestruct, userIsAllegroStandard: xsd:int, userIsB2cSeller: xsd:int)
+     ns0:doVerifyItemResponse(itemId: xsd:long, itemListed: xsd:int, itemStartingTime: xsd:long)
+
+Global types:
+     xsd:anyType
+     xsd:ENTITIES
+     xsd:ENTITY
+     xsd:ID
+     xsd:IDREF
+     xsd:IDREFS
+     xsd:NCName
+     xsd:NMTOKEN
+     xsd:NMTOKENS
+     xsd:NOTATION
+     xsd:Name
+     xsd:QName
+     xsd:anySimpleType
+     xsd:anyURI
+     xsd:base64Binary
+     xsd:boolean
+     xsd:byte
+     xsd:date
+     xsd:dateTime
+     xsd:decimal
+     xsd:double
+     xsd:duration
+     xsd:float
+     xsd:gDay
+     xsd:gMonth
+     xsd:gMonthDay
+     xsd:gYear
+     xsd:gYearMonth
+     xsd:hexBinary
+     xsd:int
+     xsd:integer
+     xsd:language
+     xsd:long
+     xsd:negativeInteger
+     xsd:nonNegativeInteger
+     xsd:nonPositiveInteger
+     xsd:normalizedString
+     xsd:positiveInteger
+     xsd:short
+     xsd:string
+     xsd:time
+     xsd:token
+     xsd:unsignedByte
+     xsd:unsignedInt
+     xsd:unsignedLong
+     xsd:unsignedShort
+     ns0:ActionDataStruct(actionKey: xsd:string, actionValue: xsd:string)
+     ns0:AddressInfoStruct(addressType: xsd:int, addressUserData: ns0:AddressUserDataStruct)
+     ns0:AddressUserDataStruct(userCompany: xsd:string, userFullName: xsd:string, userAddress: xsd:string, userPostcode: xsd:string, userCity: xsd:string)
+     ns0:AdvertInfoType(serviceId: xsd:string, advertId: xsd:string)
+     ns0:AfterSalesServiceConditionsStruct(impliedWarranty: xsd:string, returnPolicy: xsd:string, warranty: xsd:string)
+     ns0:AlcoholDataStruct(alcoholOpeningDate: xsd:string, alcoholExpirationDate: xsd:string, alcoholShopName: xsd:string, alcoholShopAddress: xsd:string, alcoholShopPostcode: xsd:string, alcoholShopCity: xsd:string, alcoholShopCommune: xsd:string, alcoholShopCountryId: xsd:int, alcoholShopStateId: xsd:int, alcoholPermitNumber: xsd:string, alcoholPermitAuthority: xsd:string, alcoholPermitInfo: xsd:string)
+     ns0:AmountStruct(amountValue: xsd:float, amountCurrencySign: xsd:string)
+     ns0:ArchiveRefundsListTypeStruct(refundId: xsd:int, buyerId: xsd:int, buyerLogin: xsd:string)
+     ns0:ArrayOfActiondatastruct(item: ns0:ActionDataStruct[])
+     ns0:ArrayOfAddressinfostruct(item: ns0:AddressInfoStruct[])
+     ns0:ArrayOfArchiverefundslisttypestruct(item: ns0:ArchiveRefundsListTypeStruct[])
+     ns0:ArrayOfAttribstruct(item: ns0:AttribStruct[])
+     ns0:ArrayOfBiditemstruct(item: ns0:BidItemStruct[])
+     ns0:ArrayOfBidliststruct2(item: ns0:BidListStruct2[])
+     ns0:ArrayOfBlacklistresstruct(item: ns0:BlackListResStruct[])
+     ns0:ArrayOfBlackliststruct(item: ns0:BlackListStruct[])
+     ns0:ArrayOfCategorydata(item: ns0:CategoryData[])
+     ns0:ArrayOfCategorypathtype(item: ns0:CategoryPathType[])
+     ns0:ArrayOfCategorytreetype(item: ns0:CategoryTreeType[])
+     ns0:ArrayOfCatinfotype(item: ns0:CatInfoType[])
+     ns0:ArrayOfCountryinfotype(item: ns0:CountryInfoType[])
+     ns0:ArrayOfDealsstruct(item: ns0:DealsStruct[])
+     ns0:ArrayOfFieldsvalue(item: ns0:FieldsValue[])
+     ns0:ArrayOfFilteroptionstype(item: ns0:FilterOptionsType[])
+     ns0:ArrayOfFilterslisttype(item: ns0:FiltersListType[])
+     ns0:ArrayOfFiltervaluetype(item: ns0:FilterValueType[])
+     ns0:ArrayOfFinishfailurestruct(item: ns0:FinishFailureStruct[])
+     ns0:ArrayOfFinishitemsstruct(item: ns0:FinishItemsStruct[])
+     ns0:ArrayOfFutureitemstruct(item: ns0:FutureItemStruct[])
+     ns0:ArrayOfInt(item: xsd:int[])
+     ns0:ArrayOfItembilling(item: ns0:ItemBilling[])
+     ns0:ArrayOfItemcatlist(item: ns0:ItemCatList[])
+     ns0:ArrayOfItemgetimage(item: ns0:ItemGetImage[])
+     ns0:ArrayOfItemimagelist(item: ns0:ItemImageList[])
+     ns0:ArrayOfItemimagesstruct(item: ns0:ItemImagesStruct[])
+     ns0:ArrayOfIteminfostruct(item: ns0:ItemInfoStruct[])
+     ns0:ArrayOfItempostbuydatastruct(item: ns0:ItemPostBuyDataStruct[])
+     ns0:ArrayOfItempricestruct(item: ns0:ItemPriceStruct[])
+     ns0:ArrayOfItemslisttype(item: ns0:ItemsListType[])
+     ns0:ArrayOfItemsurchargestruct(item: ns0:ItemSurchargeStruct[])
+     ns0:ArrayOfLong(item: xsd:long[])
+     ns0:ArrayOfMyaccountstruct2(item: ns0:MyAccountStruct2[])
+     ns0:ArrayOfMycontactlist(item: ns0:MyContactList[])
+     ns0:ArrayOfNewpostbuyformsellerstruct(item: ns0:NewPostBuyFormSellerStruct[])
+     ns0:ArrayOfNotsolditemstruct(item: ns0:NotSoldItemStruct[])
+     ns0:ArrayOfNotwonitemstruct(item: ns0:NotWonItemStruct[])
+     ns0:ArrayOfPackageinfostruct(item: ns0:PackageInfoStruct[])
+     ns0:ArrayOfParameterinfotype(item: ns0:ParameterInfoType[])
+     ns0:ArrayOfPaymentdetailsstruct(item: ns0:PaymentDetailsStruct[])
+     ns0:ArrayOfPaymentitemsstruct(item: ns0:PaymentItemsStruct[])
+     ns0:ArrayOfPaymentmethodstruct(item: ns0:PaymentMethodStruct[])
+     ns0:ArrayOfPaymentsellersstruct(item: ns0:PaymentSellersStruct[])
+     ns0:ArrayOfPayoutpaymentsstruct(item: ns0:PayoutPaymentsStruct[])
+     ns0:ArrayOfPayoutrefundfromstruct(item: ns0:PayoutRefundFromStruct[])
+     ns0:ArrayOfPayoutrefundtostruct(item: ns0:PayoutRefundToStruct[])
+     ns0:ArrayOfPhotoinfotype(item: ns0:PhotoInfoType[])
+     ns0:ArrayOfPostagestruct(item: ns0:PostageStruct[])
+     ns0:ArrayOfPostbuyformdatastruct(item: ns0:PostBuyFormDataStruct[])
+     ns0:ArrayOfPostbuyformforbuyersdatastruct(item: ns0:PostBuyFormForBuyersDataStruct[])
+     ns0:ArrayOfPostbuyformitemdealsadditionalservicestruct(item: ns0:PostBuyFormItemDealsAdditionalServiceStruct[])
+     ns0:ArrayOfPostbuyformitemdealsstruct(item: ns0:PostBuyFormItemDealsStruct[])
+     ns0:ArrayOfPostbuyformitemstruct(item: ns0:PostBuyFormItemStruct[])
+     ns0:ArrayOfPostbuyformsellersstruct(item: ns0:PostBuyFormSellersStruct[])
+     ns0:ArrayOfPostbuyformshipmenttrackingstruct(item: ns0:PostBuyFormShipmentTrackingStruct[])
+     ns0:ArrayOfPostbuyiteminfostruct(item: ns0:PostBuyItemInfoStruct[])
+     ns0:ArrayOfPriceinfotype(item: ns0:PriceInfoType[])
+     ns0:ArrayOfProductparametersgroupstruct(item: ns0:ProductParametersGroupStruct[])
+     ns0:ArrayOfProductparametersstruct(item: ns0:ProductParametersStruct[])
+     ns0:ArrayOfReasoninfotype(item: ns0:ReasonInfoType[])
+     ns0:ArrayOfRefundlisttype(item: ns0:RefundListType[])
+     ns0:ArrayOfRefundsdealslisttype(item: ns0:RefundsDealsListType[])
+     ns0:ArrayOfRelateditemstruct(item: ns0:RelatedItemStruct[])
+     ns0:ArrayOfSellershipmentdatastruct(item: ns0:SellerShipmentDataStruct[])
+     ns0:ArrayOfSellformtype(item: ns0:SellFormType[])
+     ns0:ArrayOfSellitemstruct(item: ns0:SellItemStruct[])
+     ns0:ArrayOfSellratingaveragestruct(item: ns0:SellRatingAverageStruct[])
+     ns0:ArrayOfShipmentdatastruct(item: ns0:ShipmentDataStruct[])
+     ns0:ArrayOfShipmentpaymentinfostruct(item: ns0:ShipmentPaymentInfoStruct[])
+     ns0:ArrayOfShipmentpricetypestruct(item: ns0:ShipmentPriceTypeStruct[])
+     ns0:ArrayOfShopstagtypestruct(item: ns0:ShopsTagTypeStruct[])
+     ns0:ArrayOfSitejournal(item: ns0:SiteJournal[])
+     ns0:ArrayOfSitejournaldealsstruct(item: ns0:SiteJournalDealsStruct[])
+     ns0:ArrayOfSolditemstruct(item: ns0:SoldItemStruct[])
+     ns0:ArrayOfStateinfostruct(item: ns0:StateInfoStruct[])
+     ns0:ArrayOfString(item: xsd:string[])
+     ns0:ArrayOfStructsellagain(item: ns0:StructSellAgain[])
+     ns0:ArrayOfStructsellfailed(item: ns0:StructSellFailed[])
+     ns0:ArrayOfSysstatustype(item: ns0:SysStatusType[])
+     ns0:ArrayOfTagnamestruct(item: ns0:TagNameStruct[])
+     ns0:ArrayOfUserblacklistaddresultstruct(item: ns0:UserBlackListAddResultStruct[])
+     ns0:ArrayOfUserblackliststruct(item: ns0:UserBlackListStruct[])
+     ns0:ArrayOfUserincomingpaymentrefundsstruct(item: ns0:UserIncomingPaymentRefundsStruct[])
+     ns0:ArrayOfUserincomingpaymentstruct(item: ns0:UserIncomingPaymentStruct[])
+     ns0:ArrayOfUserpaymentrefundsstruct(item: ns0:UserPaymentRefundsStruct[])
+     ns0:ArrayOfUserpaymentstruct(item: ns0:UserPaymentStruct[])
+     ns0:ArrayOfUserpayoutstruct(item: ns0:UserPayoutStruct[])
+     ns0:ArrayOfUserpostbuydatastruct(item: ns0:UserPostBuyDataStruct[])
+     ns0:ArrayOfVariantquantitystruct(item: ns0:VariantQuantityStruct[])
+     ns0:ArrayOfVariantstruct(item: ns0:VariantStruct[])
+     ns0:ArrayOfWonitemstruct(item: ns0:WonItemStruct[])
+     ns0:AttribStruct(attribName: xsd:string, attribValues: ns0:ArrayOfString)
+     ns0:BidItemStruct(itemId: xsd:long, itemTitle: xsd:string, itemThumbnailUrl: xsd:string, itemPrice: ns0:ArrayOfItempricestruct, itemBidQuantity: xsd:int, itemLeftQuantity: xsd:int, itemQuantityType: xsd:int, itemEndTime: xsd:long, itemEndTimeLeft: xsd:string, itemSeller: ns0:UserInfoStruct, itemBiddersCounter: xsd:int, itemHighestBidder: ns0:UserInfoStruct, itemCategoryId: xsd:int, itemViewsCounter: xsd:int, itemNote: xsd:string, itemSpecialInfo: xsd:int, itemShopInfo: xsd:int, itemProductInfo: xsd:long, itemPayuInfo: xsd:int)
+     ns0:BidListStruct2(bidsArray: ns0:ArrayOfString)
+     ns0:BlackListResStruct(userId: xsd:long, result: xsd:int)
+     ns0:BlackListStruct(userId: xsd:long, userLogin: xsd:string, userRating: xsd:int, userCountry: xsd:int)
+     ns0:CatInfoType(catId: xsd:int, catName: xsd:string, catParent: xsd:int, catPosition: xsd:int, catIsProductCatalogueEnabled: xsd:int, catIsLeaf: xsd:boolean)
+     ns0:CategoriesListType(categoriesTree: ns0:ArrayOfCategorytreetype, categoriesPath: ns0:ArrayOfCategorypathtype)
+     ns0:CategoryData(catId: xsd:int, catParent: xsd:int, catCountry: xsd:int, catLevel: xsd:int, catIsLeaf: xsd:int, catName: xsd:string, catOptions: xsd:int)
+     ns0:CategoryPathType(categoryId: xsd:int, categoryName: xsd:string, categoryParentId: xsd:int)
+     ns0:CategoryTreeType(categoryId: xsd:int, categoryName: xsd:string, categoryParentId: xsd:int, categoryItemsCount: xsd:int)
+     ns0:ChangedItemStruct(itemId: xsd:long, itemFields: ns0:ArrayOfFieldsvalue, itemSurcharge: ns0:ArrayOfItemsurchargestruct)
+     ns0:CompanyExtraDataStruct(companyType: xsd:string, companyNip: xsd:string, companyRegon: xsd:string, companyKrs: xsd:string, companyActivitySort: xsd:string)
+     ns0:CompanyInfoStruct(companyFirstName: xsd:string, companyLastName: xsd:string, companyName: xsd:string, companyAddress: xsd:string, companyPostcode: xsd:string, companyCity: xsd:string, companyNip: xsd:string)
+     ns0:CompanySecondAddressStruct(companyWorkerFirstName: xsd:string, companyWorkerLastName: xsd:string, companyAddress: xsd:string, companyPostcode: xsd:string, companyCity: xsd:string, companyCountryId: xsd:int, companyStateId: xsd:int)
+     ns0:CountryInfoType(countryId: xsd:int, countryName: xsd:string)
+     ns0:DealsStruct(dealId: xsd:long, dealDate: xsd:long, dealQuantity: xsd:int, dealAmountOriginal: xsd:float, dealAmountDiscounted: xsd:float)
+     ns0:DurationInfoStruct(durationType: xsd:int)
+     ns0:FieldsValue(fid: xsd:int, fvalueString: xsd:string, fvalueInt: xsd:int, fvalueFloat: xsd:float, fvalueImage: xsd:base64Binary, fvalueDatetime: xsd:float, fvalueDate: xsd:string, fvalueRangeInt: ns0:RangeIntValueStruct, fvalueRangeFloat: ns0:RangeFloatValueStruct, fvalueRangeDate: ns0:RangeDateValueStruct)
+     ns0:FilledPostBuyFormsStruct(transactionIds: ns0:ArrayOfLong)
+     ns0:FilterOptionsType(filterId: xsd:string, filterValueId: ns0:ArrayOfString, filterValueRange: ns0:RangeValueType)
+     ns0:FilterPriceStruct(filterPriceFrom: xsd:float, filterPriceTo: xsd:float)
+     ns0:FilterRelationType(relationAnd: ns0:ArrayOfString, relationOr: ns0:ArrayOfString, relationExclude: ns0:ArrayOfString)
+     ns0:FilterValueType(filterValueId: xsd:string, filterValueName: xsd:string, filterValueCount: xsd:int)
+     ns0:FiltersListType(filterId: xsd:string, filterName: xsd:string, filterType: xsd:string, filterControlType: xsd:string, filterDataType: xsd:string, filterIsRange: xsd:boolean, filterArraySize: xsd:int, filterValues: ns0:ArrayOfFiltervaluetype, filterRelations: ns0:FilterRelationType)
+     ns0:FinishFailureStruct(finishItemId: xsd:long, finishErrorCode: xsd:string, finishErrorMessage: xsd:string)
+     ns0:FinishItemsStruct(finishItemId: xsd:long, finishCancelAllBids: xsd:int, finishCancelReason: xsd:string)
+     ns0:FulfillmentTimeStruct(fulfillmentTimeFrom: xsd:int, fulfillmentTimeTo: xsd:int)
+     ns0:FutureFilterOptionsStruct(filterFormat: xsd:int)
+     ns0:FutureItemStruct(itemId: xsd:long, itemTitle: xsd:string, itemThumbnailUrl: xsd:string, itemPrice: ns0:ArrayOfItempricestruct, itemStartQuantity: xsd:int, itemQuantityType: xsd:int, itemStartTime: xsd:long, itemCategoryId: xsd:int, itemNote: xsd:string, itemSpecialInfo: xsd:int, itemShopInfo: xsd:int, itemProductInfo: xsd:long, itemPayuInfo: xsd:int, itemStatus: xsd:int)
+     ns0:InvoiceDataStruct(companyName: xsd:string, companyNip: xsd:string)
+     ns0:InvoiceInfoStruct(invoiceAddressType: xsd:int, invoiceAddressData: ns0:AddressUserDataStruct, invoiceNip: xsd:string)
+     ns0:ItemBilling(biName: xsd:string, biValue: xsd:string)
+     ns0:ItemCatList(catLevel: xsd:int, catId: xsd:long, catName: xsd:string)
+     ns0:ItemDescriptionStruct(descriptionResult: xsd:string)
+     ns0:ItemGetImage(itId: xsd:long, itSellerId: xsd:long, itFotoCount: xsd:int)
+     ns0:ItemImageList(imageType: xsd:int, imageUrl: xsd:string)
+     ns0:ItemImagesStruct(itemId: xsd:long, itemImages: ns0:ArrayOfItemimagelist)
+     ns0:ItemInfo(itId: xsd:long, itCountry: xsd:int, itName: xsd:string, itPrice: xsd:float, itBidCount: xsd:int, itEndingTime: xsd:long, itSellerId: xsd:long, itSellerLogin: xsd:string, itSellerRating: xsd:int, itStartingTime: xsd:long, itStartingPrice: xsd:float, itQuantity: xsd:int, itFotoCount: xsd:int, itReservePrice: xsd:float, itLocation: xsd:string, itBuyNowPrice: xsd:float, itBuyNowActive: xsd:int, itAdvertisementPrice: xsd:float, itAdvertisementActive: xsd:int, itHighBidder: xsd:int, itHighBidderLogin: xsd:string, itDescription: xsd:string, itStandardizedDescription: xsd:string, itOptions: xsd:int, itState: xsd:int, itIsEco: xsd:int, itHitCount: xsd:long, itPostcode: xsd:string, itVatInvoice: xsd:int, itVatMarginInvoice: xsd:int, itWithoutVatInvoice: xsd:int, itBankAccount1: xsd:string, itBankAccount2: xsd:string, itStartingQuantity: xsd:int, itIsForGuests: xsd:int, itHasProduct: xsd:int, itOrderFulfillmentTime: xsd:int, itEndingInfo: xsd:int, itIsAllegroStandard: xsd:int, itIsNewUsed: xsd:int, itIsBrandZone: xsd:int, itDurationInfo: ns0:DurationInfoStruct, itIsFulfillmentTimeActive: xsd:int, itEan: xsd:string, itContact: xsd:string)
+     ns0:ItemInfoExt(itId: xsd:long, itCountry: xsd:int, itName: xsd:string, itPrice: xsd:float, itBidCount: xsd:int, itEndingTime: xsd:long, itSellerId: xsd:long, itSellerLogin: xsd:string, itSellerRating: xsd:int, itStartingTime: xsd:long, itStartingPrice: xsd:float, itQuantity: xsd:int, itFotoCount: xsd:int, itReservePrice: xsd:float, itLocation: xsd:string, itBuyNowPrice: xsd:float, itBuyNowActive: xsd:int, itAdvertisementPrice: xsd:float, itAdvertisementActive: xsd:int, itHighBidder: xsd:int, itHighBidderLogin: xsd:string, itDescription: xsd:string, itStandardizedDescription: xsd:string, itOptions: xsd:int, itState: xsd:int, itWireTransfer: xsd:float, itPostDelivery: xsd:float, itPostInfo: xsd:string, itQuantityType: xsd:int, itIsEco: xsd:int, itHitCount: xsd:long, itPostcode: xsd:string, itVatInvoice: xsd:int, itVatMarginInvoice: xsd:int, itWithoutVatInvoice: xsd:int, itBankAccount1: xsd:string, itBankAccount2: xsd:string, itStartingQuantity: xsd:int, itIsForGuests: xsd:int, itHasProduct: xsd:int, itOrderFulfillmentTime: xsd:int, itEndingInfo: xsd:int, itIsAllegroStandard: xsd:int, itIsNewUsed: xsd:int, itIsBrandZone: xsd:int, itIsFulfillmentTimeActive: xsd:int, itEan: xsd:string, itContact: xsd:string)
+     ns0:ItemInfoStruct(itemInfo: ns0:ItemInfo, itemCats: ns0:ArrayOfItemcatlist, itemImages: ns0:ArrayOfItemimagelist, itemAttribs: ns0:ArrayOfAttribstruct, itemPostageOptions: ns0:ArrayOfPostagestruct, itemPaymentOptions: ns0:ItemPaymentOptions, itemCompanyInfo: ns0:CompanyInfoStruct, itemProductInfo: ns0:ProductStruct, itemAfterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct, itemAdditionalServicesGroup: xsd:string)
+     ns0:ItemPaymentOptions(payOptionTransfer: xsd:int, payOptionOnDelivery: xsd:int, payOptionAllegroPay: xsd:int, payOptionSeeDesc: xsd:int, payOptionPayu: xsd:int, payOptionEscrow: xsd:int, payOptionQiwi: xsd:int)
+     ns0:ItemPostBuyDataStruct(itemId: xsd:long, usersPostBuyData: ns0:ArrayOfUserpostbuydatastruct)
+     ns0:ItemPriceStruct(priceType: xsd:int, priceValue: xsd:float)
+     ns0:ItemSurchargeStruct(surchargeDescription: xsd:string, surchargeAmount: ns0:AmountStruct)
+     ns0:ItemTemplateCreateStruct(itemTemplateOption: xsd:int, itemTemplateName: xsd:string)
+     ns0:ItemsListType(itemId: xsd:long, itemTitle: xsd:string, leftCount: xsd:int, bidsCount: xsd:int, biddersCount: xsd:int, quantityType: xsd:string, endingTime: xsd:dateTime, timeToEnd: xsd:string, categoryId: xsd:int, conditionInfo: xsd:string, promotionInfo: xsd:int, additionalInfo: xsd:int, sellerInfo: ns0:UserInfoType, priceInfo: ns0:ArrayOfPriceinfotype, photosInfo: ns0:ArrayOfPhotoinfotype, parametersInfo: ns0:ArrayOfParameterinfotype, advertInfo: ns0:AdvertInfoType)
+     ns0:MessageToBuyerStruct(messageSellerId: xsd:int, messageContent: xsd:string)
+     ns0:MyAccountStruct2(myAccountArray: ns0:ArrayOfString)
+     ns0:MyContactList(contactUserId: xsd:int, contactNick: xsd:string, contactFirstName: xsd:string, contactLastName: xsd:string, contactCompany: xsd:string, contactEmail: xsd:string, contactStreet: xsd:string, contactPostcode: xsd:string, contactCity: xsd:string, contactCountry: xsd:string, contactPhone: xsd:string, contactPhone2: xsd:string, contactRating: xsd:string, contactBlocked: xsd:string)
+     ns0:NewPostBuyFormCommonStruct(paymentMethodId: xsd:string, shipmentAddressType: xsd:int, shipmentAddressData: ns0:AddressUserDataStruct, contactPhone: xsd:string, invoiceOption: xsd:int, invoiceInfo: ns0:InvoiceInfoStruct)
+     ns0:NewPostBuyFormSellerStruct(sellerId: xsd:int, sellerItemIds: ns0:ArrayOfLong, sellerShipmentId: xsd:int, sellerGdId: xsd:int, sellerShipmentAmount: xsd:float, sellerMessageTo: xsd:string)
+     ns0:NotSoldFilterOptionsStruct(filterFormat: xsd:int, filterFromEnd: xsd:int, filterAutoListing: xsd:int, filterPrice: ns0:FilterPriceStruct, filterDurationType: xsd:int)
+     ns0:NotSoldItemStruct(itemId: xsd:long, itemTitle: xsd:string, itemThumbnailUrl: xsd:string, itemPrice: ns0:ArrayOfItempricestruct, itemStartQuantity: xsd:int, itemQuantityType: xsd:int, itemStartTime: xsd:long, itemEndTime: xsd:long, itemBiddersCounter: xsd:int, itemHighestBidder: ns0:UserInfoStruct, itemCategoryId: xsd:int, itemWatchersCounter: xsd:int, itemViewsCounter: xsd:int, itemNote: xsd:string, itemSpecialInfo: xsd:int, itemShopInfo: xsd:int, itemProductInfo: xsd:long, itemPayuInfo: xsd:int)
+     ns0:NotWonItemStruct(itemId: xsd:long, itemTitle: xsd:string, itemThumbnailUrl: xsd:string, itemPrice: ns0:ArrayOfItempricestruct, itemLeftQuantity: xsd:int, itemQuantityType: xsd:int, itemEndTime: xsd:long, itemEndTimeLeft: xsd:string, itemSeller: ns0:UserInfoStruct, itemBiddersCounter: xsd:int, itemHighestBidder: ns0:UserInfoStruct, itemCategoryId: xsd:int, itemViewsCounter: xsd:int, itemNote: xsd:string, itemSpecialInfo: xsd:int, itemShopInfo: xsd:int, itemProductInfo: xsd:long, itemPayuInfo: xsd:int)
+     ns0:PackageInfoStruct(operatorId: xsd:int, packageId: xsd:string)
+     ns0:ParameterInfoType(parameterName: xsd:string, parameterValue: ns0:ArrayOfString, parameterUnit: xsd:string, parameterIsRange: xsd:boolean)
+     ns0:PaymentDetailsStruct(payTransDetailsItId: xsd:long, payTransDetailsPrice: xsd:float, payTransDetailsCount: xsd:int)
+     ns0:PaymentItemsStruct(payTransItId: xsd:long, payTransItName: xsd:string, payTransItCount: xsd:int, payTransItPrice: xsd:float)
+     ns0:PaymentMethodStruct(paymentMethodId: xsd:string, paymentMethodName: xsd:string, paymentMethodImage: xsd:string, paymentMethodUsage: xsd:int)
+     ns0:PaymentSellersStruct(payTransSellerId: xsd:int, payTransSellerName: xsd:string, payTransItems: ns0:ArrayOfPaymentitemsstruct, payTransSellerPostageAmount: xsd:float)
+     ns0:PaymentsInfoStruct(paymentsBalance: xsd:float, paymentsBankAccount: xsd:string, paymentsUserData: ns0:PaymentsUserDataStruct, paymentsPayout: ns0:PaymentsPayoutStruct, paymentsNotifications: xsd:int)
+     ns0:PaymentsPayoutStruct(payoutType: xsd:int, payoutAutoSettings: ns0:PayoutAutoSettingsStruct)
+     ns0:PaymentsUserDataStruct(userFullName: xsd:string, userAddress: xsd:string, userPostcode: xsd:string, userCity: xsd:string, userCountry: xsd:int, userPhone: xsd:string)
+     ns0:PayoutAutoFrequencyStruct(frequencyType: xsd:short, frequencyWeekValue: xsd:short, frequencyMonthValue: xsd:short)
+     ns0:PayoutAutoSettingsStruct(payoutAutoAmount: xsd:float, payoutAutoFrequency: ns0:PayoutAutoFrequencyStruct)
+     ns0:PayoutPaymentsStruct(tranasctionId: xsd:long, userName: xsd:string, userId: xsd:long, amount: xsd:float, transportAmount: xsd:float, totalAmount: xsd:float, paidDate: xsd:string)
+     ns0:PayoutRefundFromStruct(tranasctionId: xsd:long, refundId: xsd:long, refundReason: xsd:string, itemId: xsd:long, fromUserId: xsd:long, amount: xsd:float, paidDate: xsd:string)
+     ns0:PayoutRefundToStruct(tranasctionId: xsd:long, refundId: xsd:long, refundReason: xsd:string, itemId: xsd:long, toUserId: xsd:long, amount: xsd:float, paidDate: xsd:string)
+     ns0:PharmacyDataStruct(pharmacyOpeningDate: xsd:string, pharmacyExpirationDate: xsd:string, pharmacyName: xsd:string, pharmacyPharmacistFullName: xsd:string, pharmacyAddress: xsd:string, pharmacyPostcode: xsd:string, pharmacyCity: xsd:string, pharmacyCommune: xsd:string, pharmacyCountryId: xsd:int, pharmacyStateId: xsd:int, pharmacyPermitNumber: xsd:string, pharmacyPermitInfo: xsd:string)
+     ns0:PharmacyRecipientDataStruct(recipientFirstName: xsd:string, recipientLastName: xsd:string, recipientAddress: xsd:string, recipientPostcode: xsd:string, recipientCity: xsd:string)
+     ns0:PhotoInfoType(photoSize: xsd:string, photoUrl: xsd:string, photoIsMain: xsd:boolean)
+     ns0:PostBuyFormAddressStruct(postBuyFormAdrCountry: xsd:int, postBuyFormAdrStreet: xsd:string, postBuyFormAdrPostcode: xsd:string, postBuyFormAdrCity: xsd:string, postBuyFormAdrFullName: xsd:string, postBuyFormAdrCompany: xsd:string, postBuyFormAdrPhone: xsd:string, postBuyFormAdrNip: xsd:string, postBuyFormCreatedDate: xsd:string, postBuyFormAdrType: xsd:int)
+     ns0:PostBuyFormDataStruct(postBuyFormId: xsd:long, postBuyFormItems: ns0:ArrayOfPostbuyformitemstruct, postBuyFormBuyerId: xsd:long, postBuyFormAmount: xsd:float, postBuyFormPostageAmount: xsd:float, postBuyFormInvoiceOption: xsd:int, postBuyFormMsgToSeller: xsd:string, postBuyFormInvoiceData: ns0:PostBuyFormAddressStruct, postBuyFormShipmentAddress: ns0:PostBuyFormAddressStruct, postBuyFormPayType: xsd:string, postBuyFormPayId: xsd:long, postBuyFormPayStatus: xsd:string, postBuyFormDateInit: xsd:string, postBuyFormDateRecv: xsd:string, postBuyFormDateCancel: xsd:string, postBuyFormShipmentId: xsd:int, postBuyFormGdAddress: ns0:PostBuyFormAddressStruct, postBuyFormShipmentTracking: ns0:ArrayOfPostbuyformshipmenttrackingstruct, postBuyFormSurchargesList: ns0:ArrayOfLong, postBuyFormGdAdditionalInfo: xsd:string, postBuyFormPaymentAmount: xsd:float, postBuyFormSentBySeller: xsd:int, postBuyFormBuyerLogin: xsd:string, postBuyFormBuyerEmail: xsd:string, postBuyFormAdditionalServicesAmount: xsd:float)
+     ns0:PostBuyFormForBuyersDataStruct(postBuyFormId: xsd:long, postBuyFormBuyerId: xsd:int, postBuyFormSellers: ns0:ArrayOfPostbuyformsellersstruct, postBuyFormTotalAmount: xsd:float, postBuyFormInvoiceOption: xsd:int, postBuyFormInvoiceData: ns0:PostBuyFormAddressStruct, postBuyFormShipmentAddress: ns0:PostBuyFormAddressStruct, postBuyFormPayType: xsd:string, postBuyFormPayId: xsd:long, postBuyFormPayStatus: xsd:string, postBuyFormDateInit: xsd:string, postBuyFormDateRecv: xsd:string, postBuyFormDateCancel: xsd:string, postBuyFormPaymentAmount: xsd:float)
+     ns0:PostBuyFormItemDealsAdditionalServiceStruct(additionalServiceDefinitionId: xsd:string, additionalServiceName: xsd:string, additionalServiceQuantity: xsd:int, additionalServicePrice: xsd:float)
+     ns0:PostBuyFormItemDealsStruct(dealId: xsd:long, dealFinalPrice: xsd:float, dealQuantity: xsd:int, dealDate: xsd:dateTime, dealWasDiscounted: xsd:boolean, dealVariant: ns0:PostBuyFormItemDealsVariantStruct, dealAdditionalServices: ns0:ArrayOfPostbuyformitemdealsadditionalservicestruct)
+     ns0:PostBuyFormItemDealsVariantStruct(variantName: xsd:string, variantValue: xsd:string)
+     ns0:PostBuyFormItemStruct(postBuyFormItQuantity: xsd:int, postBuyFormItAmount: xsd:float, postBuyFormItId: xsd:long, postBuyFormItTitle: xsd:string, postBuyFormItCountry: xsd:int, postBuyFormItPrice: xsd:float, postBuyFormItDeals: ns0:ArrayOfPostbuyformitemdealsstruct)
+     ns0:PostBuyFormPackageInfoStruct(packageIdsAdded: ns0:ArrayOfString, packageIdsNotAddedIncorrectOperatorId: ns0:ArrayOfString, packageIdsNotAddedIncorrectPackageId: ns0:ArrayOfString)
+     ns0:PostBuyFormSellersStruct(postBuyFormSellerId: xsd:int, postBuyFormSellerName: xsd:string, postBuyFormItems: ns0:ArrayOfPostbuyformitemstruct, postBuyFormShipmentId: xsd:int, postBuyFormPostageAmount: xsd:float, postBuyFormMsgToSeller: xsd:string, postBuyFormAmount: xsd:float, postBuyFormSurchargesList: ns0:ArrayOfLong, postBuyFormShipmentTracking: ns0:ArrayOfPostbuyformshipmenttrackingstruct, postBuyFormGdAddress: ns0:PostBuyFormAddressStruct, postBuyFormGdAdditionalInfo: xsd:string, postBuyFormSentBySeller: xsd:int)
+     ns0:PostBuyFormShipmentTrackingStruct(postBuyFormOperatorId: xsd:int, postBuyFormPackageId: xsd:string, postBuyFormPackageStatus: xsd:string)
+     ns0:PostBuyFormStruct(transactionId: xsd:long, transactionPackageIds: ns0:ArrayOfLong, transactionPayByLink: ns0:TransactionPayByLinkStruct)
+     ns0:PostBuyItemInfoStruct(itemId: xsd:long, itemPostBuyFormInfo: xsd:int)
+     ns0:PostageStruct(postageAmount: xsd:float, postageAmountAdd: xsd:float, postagePackSize: xsd:int, postageId: xsd:int, postageFreeShipping: xsd:int, postageFreeReturn: xsd:int, postageFulfillmentTime: ns0:FulfillmentTimeStruct)
+     ns0:PriceInfoType(priceType: xsd:string, priceValue: xsd:float)
+     ns0:ProductParametersGroupStruct(productParametersGroupName: xsd:string, productParametersList: ns0:ArrayOfProductparametersstruct)
+     ns0:ProductParametersStruct(productParameterName: xsd:string, productParameterValues: ns0:ArrayOfString, productParameterDescription: xsd:string)
+     ns0:ProductStruct(productId: xsd:long, productName: xsd:string, productDescription: xsd:string, productImagesList: ns0:ArrayOfString, productParametersGroupList: ns0:ArrayOfProductparametersgroupstruct)
+     ns0:RangeDateValueStruct(fvalueRangeDateMin: xsd:string, fvalueRangeDateMax: xsd:string)
+     ns0:RangeFloatValueStruct(fvalueRangeFloatMin: xsd:float, fvalueRangeFloatMax: xsd:float)
+     ns0:RangeIntValueStruct(fvalueRangeIntMin: xsd:int, fvalueRangeIntMax: xsd:int)
+     ns0:RangeValueType(rangeValueMin: xsd:string, rangeValueMax: xsd:string)
+     ns0:ReasonInfoType(reasonId: xsd:int, reasonName: xsd:string, maxQuantity: xsd:int)
+     ns0:RefundDetailsType(refundId: xsd:int, refundStatus: xsd:string, refundQuantity: xsd:int, createdDate: xsd:dateTime, considerDate: xsd:dateTime)
+     ns0:RefundListType(dealId: xsd:long, dealDate: xsd:dateTime, buyerId: xsd:int, buyerLogin: xsd:string, itemId: xsd:long, itemTitle: xsd:string, bidsCount: xsd:int, quantityType: xsd:string, refundDetails: ns0:RefundDetailsType)
+     ns0:RefundsDealsListType(dealId: xsd:long, dealDate: xsd:dateTime, timeLeft: xsd:int, buyerId: xsd:int, buyerLogin: xsd:string, itemId: xsd:long, itemTitle: xsd:string, bidsCount: xsd:int, quantityType: xsd:string, paymentStatus: xsd:string)
+     ns0:RelatedItemStruct(itemId: xsd:long, itemTitle: xsd:string, itemThumbnail: xsd:string, itemPrice: xsd:float, itemBoughtCount: xsd:int, itemAmount: xsd:float, itemPaymentType: xsd:int, itemSellerId: xsd:long, itemSellerName: xsd:string, itemInvoiceInfo: xsd:int, itemCategoryId: xsd:int)
+     ns0:RelatedItemsShipmentDataStruct(sellerShipmentData: ns0:ArrayOfSellershipmentdatastruct)
+     ns0:RelatedItemsStruct(relatedItemsInfo: ns0:ArrayOfRelateditemstruct, relatedItemsAmount: xsd:float)
+     ns0:RelatedPersonsStruct(spouseFirstName: xsd:string, spouseLastName: xsd:string)
+     ns0:RequestPayoutStruct(payoutId: xsd:long, payoutAmount: xsd:float, payoutTime: xsd:long)
+     ns0:SellFilterOptionsStruct(filterFormat: xsd:int, filterBids: xsd:int, filterToEnd: xsd:int, filterFromStart: xsd:int, filterAutoListing: xsd:int, filterPrice: ns0:FilterPriceStruct, filterDurationType: xsd:int)
+     ns0:SellFormFieldsForCategoryStruct(sellFormFieldsList: ns0:ArrayOfSellformtype, sellFormFieldsVersionKey: xsd:long, sellFormFieldsComponentValue: xsd:string)
+     ns0:SellFormType(sellFormId: xsd:int, sellFormTitle: xsd:string, sellFormCat: xsd:int, sellFormType: xsd:int, sellFormResType: xsd:int, sellFormDefValue: xsd:int, sellFormOpt: xsd:int, sellFormPos: xsd:int, sellFormLength: xsd:int, sellMinValue: xsd:string, sellMaxValue: xsd:string, sellFormDesc: xsd:string, sellFormOptsValues: xsd:string, sellFormFieldDesc: xsd:string, sellFormParamId: xsd:int, sellFormParamValues: xsd:string, sellFormParentId: xsd:int, sellFormParentValue: xsd:string, sellFormUnit: xsd:string, sellFormOptions: xsd:int)
+     ns0:SellItemStruct(itemId: xsd:long, itemTitle: xsd:string, itemThumbnailUrl: xsd:string, itemPrice: ns0:ArrayOfItempricestruct, itemStartQuantity: xsd:int, itemSoldQuantity: xsd:int, itemQuantityType: xsd:int, itemStartTime: xsd:long, itemEndTime: xsd:long, itemEndTimeLeft: xsd:string, itemBiddersCounter: xsd:int, itemHighestBidder: ns0:UserInfoStruct, itemCategoryId: xsd:int, itemWatchersCounter: xsd:int, itemViewsCounter: xsd:int, itemNote: xsd:string, itemSpecialInfo: xsd:int, itemShopInfo: xsd:int, itemProductInfo: xsd:long, itemPayuInfo: xsd:int, itemDurationInfo: ns0:DurationInfoStruct)
+     ns0:SellRatingAverageStruct(sellRatingGroupTitle: xsd:string, sellRatingGroupAverage: xsd:float)
+     ns0:SellerPaymentInfoStruct(shipmentPaymentInfoPza: ns0:ArrayOfShipmentpaymentinfostruct, shipmentPaymentInfoNonPza: ns0:ArrayOfShipmentpaymentinfostruct)
+     ns0:SellerShipmentDataStruct(sellerId: xsd:int, sellerPaymentInfo: ns0:SellerPaymentInfoStruct, sellerOtherShipmentIsActive: xsd:int, generalDeliveryPaymentInfo: ns0:ArrayOfShipmentpaymentinfostruct)
+     ns0:ShipmentDataStruct(shipmentId: xsd:int, shipmentName: xsd:string, shipmentType: xsd:int, shipmentTime: ns0:ShipmentTimeStruct)
+     ns0:ShipmentPaymentInfoStruct(shipmentId: xsd:int, shipmentName: xsd:string, shipmentAmount: xsd:float, shipmentPaymentType: xsd:int, shipmentItemIds: ns0:ArrayOfLong)
+     ns0:ShipmentPriceTypeStruct(shipmentPriceTypeId: xsd:int, shipmentPriceTypeName: xsd:string)
+     ns0:ShipmentTimeStruct(shipmentTimeFrom: xsd:int, shipmentTimeTo: xsd:int)
+     ns0:ShopsTagTypeStruct(id: xsd:int, code: xsd:string, name: xsd:string)
+     ns0:ShowUserFeedbacks(userFLastWeek: xsd:int, userFLastMonth: xsd:int, userFAll: xsd:int, userFSoldItems: xsd:int, userFBuyItems: xsd:int)
+     ns0:SiteJournal(rowId: xsd:long, itemId: xsd:long, changeType: xsd:string, changeDate: xsd:long, currentPrice: xsd:float, itemSellerId: xsd:long)
+     ns0:SiteJournalDealsInfoStruct(dealEventsCount: xsd:int, dealLastEventTime: xsd:long)
+     ns0:SiteJournalDealsStruct(dealEventId: xsd:long, dealEventType: xsd:int, dealEventTime: xsd:long, dealId: xsd:long, dealTransactionId: xsd:long, dealSellerId: xsd:int, dealItemId: xsd:long, dealBuyerId: xsd:int, dealQuantity: xsd:int)
+     ns0:SiteJournalInfo(itemsNumber: xsd:int, lastItemDate: xsd:long)
+     ns0:SoldFilterOptionsStruct(filterFormat: xsd:int, filterFromEnd: xsd:int, filterAutoListing: xsd:int, filterPrice: ns0:FilterPriceStruct, filterDurationType: xsd:int)
+     ns0:SoldItemStruct(itemId: xsd:long, itemTitle: xsd:string, itemThumbnailUrl: xsd:string, itemPrice: ns0:ArrayOfItempricestruct, itemStartQuantity: xsd:int, itemSoldQuantity: xsd:int, itemQuantityType: xsd:int, itemStartTime: xsd:long, itemEndTime: xsd:long, itemEndTimeLeft: xsd:string, itemBiddersCounter: xsd:int, itemHighestBidder: ns0:UserInfoStruct, itemCategoryId: xsd:int, itemWatchersCounter: xsd:int, itemViewsCounter: xsd:int, itemNote: xsd:string, itemSpecialInfo: xsd:int, itemShopInfo: xsd:int, itemProductInfo: xsd:long, itemPayuInfo: xsd:int, itemDurationInfo: ns0:DurationInfoStruct)
+     ns0:SortOptionsStruct(sortType: xsd:int, sortOrder: xsd:int)
+     ns0:SortOptionsType(sortType: xsd:string, sortOrder: xsd:string)
+     ns0:StateInfoStruct(stateId: xsd:int, stateName: xsd:string)
+     ns0:StructSellAgain(sellItemId: xsd:long, sellItemInfo: xsd:string, sellItemLocalId: xsd:int)
+     ns0:StructSellFailed(sellItemId: xsd:long, sellFaultCode: xsd:string, sellFaultString: xsd:string)
+     ns0:SysStatusType(countryId: xsd:int, programVersion: xsd:string, catsVersion: xsd:string, apiVersion: xsd:string, attribVersion: xsd:string, formSellVersion: xsd:string, siteVersion: xsd:string, verKey: xsd:long)
+     ns0:TagNameStruct(tagName: xsd:string)
+     ns0:TransactionPayByLinkStruct(actionHttpMethod: xsd:string, actionUrl: xsd:string, actionData: ns0:ArrayOfActiondatastruct)
+     ns0:UserBlackListAddResultStruct(userId: xsd:int, addToBlackListResult: xsd:int, addToBlackListErrCode: xsd:string, addToBlackListErrMsg: xsd:string)
+     ns0:UserBlackListStruct(userId: xsd:int, userBlackListNote: xsd:string)
+     ns0:UserDataStruct(userId: xsd:long, userLogin: xsd:string, userRating: xsd:int, userFirstName: xsd:string, userLastName: xsd:string, userMaidenName: xsd:string, userCompany: xsd:string, userCountryId: xsd:int, userStateId: xsd:int, userPostcode: xsd:string, userCity: xsd:string, userAddress: xsd:string, userEmail: xsd:string, userPhone: xsd:string, userPhone2: xsd:string, userSsStatus: xsd:int, siteCountryId: xsd:int, userJuniorStatus: xsd:int, userBirthDate: xsd:long, userHasShop: xsd:int, userCompanyIcon: xsd:int, userIsAllegroStandard: xsd:int)
+     ns0:UserIncomingPaymentRefundsStruct(payRefundTransId: xsd:long, payRefundItId: xsd:long, payRefundBuyerId: xsd:int, payRefundValue: xsd:float, payRefundReason: xsd:string, payRefundDate: xsd:long)
+     ns0:UserIncomingPaymentStruct(payTransId: xsd:long, payTransItId: xsd:long, payTransBuyerId: xsd:int, payTransType: xsd:string, payTransStatus: xsd:string, payTransAmount: xsd:float, payTransCreateDate: xsd:long, payTransRecvDate: xsd:long, payTransPrice: xsd:float, payTransCount: xsd:int, payTransPostageAmount: xsd:float, payTransDetails: ns0:ArrayOfPaymentdetailsstruct, payTransIncomplete: xsd:int, payTransMainId: xsd:long)
+     ns0:UserInfoStruct(userId: xsd:int, userLogin: xsd:string, userRating: xsd:int, userIcons: xsd:int, userCountry: xsd:int)
+     ns0:UserInfoType(userId: xsd:int, userLogin: xsd:string, userRating: xsd:int, userIcons: xsd:int, countryId: xsd:int)
+     ns0:UserPaymentRefundsStruct(payRefundTransId: xsd:long, payRefundItId: xsd:long, payRefundSellerId: xsd:int, payRefundValue: xsd:float, payRefundReason: xsd:string, payRefundDate: xsd:long)
+     ns0:UserPaymentStruct(payTransId: xsd:long, payTransSellers: ns0:ArrayOfPaymentsellersstruct, payTransType: xsd:string, payTransStatus: xsd:string, payTransAmount: xsd:float, payTransCreateDate: xsd:long, payTransPrice: xsd:float, payTransPostageAmount: xsd:float, payTransIncomplete: xsd:int)
+     ns0:UserPayoutStruct(payTransId: xsd:long, payTransStatus: xsd:string, payTransAmount: xsd:float, payTransCreateDate: xsd:long, payTransRecvDate: xsd:long, payTransCancelDate: xsd:long, payTransReport: xsd:string)
+     ns0:UserPostBuyDataStruct(userData: ns0:UserDataStruct, userSentToData: ns0:UserSentToDataStruct, userBankAccounts: ns0:ArrayOfString, companySecondAddress: ns0:CompanySecondAddressStruct)
+     ns0:UserSentToDataStruct(userId: xsd:long, userFirstName: xsd:string, userLastName: xsd:string, userCompany: xsd:string, userCountryId: xsd:int, userPostcode: xsd:string, userCity: xsd:string, userAddress: xsd:string)
+     ns0:VariantQuantityStruct(mask: xsd:int, quantity: xsd:int)
+     ns0:VariantStruct(fid: xsd:int, quantities: ns0:ArrayOfVariantquantitystruct)
+     ns0:WonItemStruct(itemId: xsd:long, itemTitle: xsd:string, itemThumbnailUrl: xsd:string, itemPrice: ns0:ArrayOfItempricestruct, itemBoughtQuantity: xsd:int, itemLeftQuantity: xsd:int, itemQuantityType: xsd:int, itemEndTime: xsd:long, itemEndTimeLeft: xsd:string, itemSeller: ns0:UserInfoStruct, itemBiddersCounter: xsd:int, itemCategoryId: xsd:int, itemViewsCounter: xsd:int, itemNote: xsd:string, itemSpecialInfo: xsd:int, itemShopInfo: xsd:int, itemProductInfo: xsd:long, itemPayuInfo: xsd:int)
+
+Bindings:
+     Soap11Binding: {https://webapi.allegro.pl/service.php}serviceBinding
+
+Service: serviceService
+     Port: servicePort (Soap11Binding: {https://webapi.allegro.pl/service.php}serviceBinding)
+         Operations:
+            doAddPackageInfoToPostBuyForm(sessionId: xsd:string, transactionId: xsd:long, packageInfo: ns0:ArrayOfPackageinfostruct) -> postBuyFormPackageInfo: ns0:PostBuyFormPackageInfoStruct
+            doAddToBlackList(sessionHandle: xsd:string, usersBlackListArray: ns0:ArrayOfUserblackliststruct) -> userBlackListResultsArr: ns0:ArrayOfUserblacklistaddresultstruct
+            doBidItem(sessionHandle: xsd:string, bidItId: xsd:long, bidUserPrice: xsd:float, bidQuantity: xsd:long, bidBuyNow: xsd:long, pharmacyRecipientData: ns0:PharmacyRecipientDataStruct, variantId: xsd:string) -> bidPrice: xsd:string
+            doCancelBidItem(sessionHandle: xsd:string, cancelItemId: xsd:long, cancelBidsArray: ns0:ArrayOfInt, cancelBidsReason: xsd:string, cancelAddToBlackList: xsd:long) -> cancelBidValue: xsd:int, cancelledBids: ns0:ArrayOfInt, notCancelledBids: ns0:ArrayOfInt
+            doCancelRefundForm(sessionId: xsd:string, refundId: xsd:int) -> cancellationResult: xsd:boolean
+            doCancelRefundWarning(sessionId: xsd:string, refundId: xsd:int) -> cancellationResult: xsd:boolean
+            doCancelTransaction(sessionId: xsd:string, transactionId: xsd:long) -> cancellationResult: xsd:int
+            doChangeItemFields(sessionId: xsd:string, itemId: xsd:long, fieldsToModify: ns0:ArrayOfFieldsvalue, fieldsToRemove: ns0:ArrayOfInt, previewOnly: xsd:int, variants: ns0:ArrayOfVariantstruct, tags: ns0:ArrayOfTagnamestruct, afterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct, additionalServicesGroup: xsd:string) -> changedItem: ns0:ChangedItemStruct
+            doChangePriceItem(sessionHandle: xsd:string, itemId: xsd:long, newStartingPrice: xsd:float, newReservePrice: xsd:float, newBuyNowPrice: xsd:float, newAdvertisementPrice: xsd:float) -> itemInfo: xsd:string, itemId: xsd:long
+            doChangeQuantityItem(sessionHandle: xsd:string, itemId: xsd:long, newItemQuantity: xsd:int) -> itemId: xsd:long, itemInfo: xsd:string, itemQuantityLeft: xsd:int, itemQuantitySold: xsd:int
+            doCheckItemDescription(sessionId: xsd:string, descriptionContent: xsd:string) -> itemDescription: ns0:ItemDescriptionStruct
+            doCheckNewAuctionExt(sessionHandle: xsd:string, fields: ns0:ArrayOfFieldsvalue, variants: ns0:ArrayOfVariantstruct, tags: ns0:ArrayOfTagnamestruct, afterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct) -> itemPrice: xsd:string, itemPriceDesc: xsd:string, itemIsAllegroStandard: xsd:int
+            doFinishItem(sessionHandle: xsd:string, finishItemId: xsd:long, finishCancelAllBids: xsd:int, finishCancelReason: xsd:string) -> finishValue: xsd:int
+            doFinishItems(sessionHandle: xsd:string, finishItemsList: ns0:ArrayOfFinishitemsstruct) -> finishItemsSucceed: ns0:ArrayOfLong, finishItemsFailed: ns0:ArrayOfFinishfailurestruct
+            doGetArchiveRefundsList(sessionId: xsd:string, itemId: xsd:long) -> refundsCount: xsd:int, refundsList: ns0:ArrayOfArchiverefundslisttypestruct
+            doGetBidItem2(sessionHandle: xsd:string, itemId: xsd:long) -> biditemList: ns0:ArrayOfBidliststruct2
+            doGetBlackListUsers(sessionHandle: xsd:string) -> blackListUsers: ns0:ArrayOfBlackliststruct
+            doGetCategoryPath(sessionId: xsd:string, categoryId: xsd:int) -> categoryPath: ns0:ArrayOfCategorydata
+            doGetCatsData(countryId: xsd:int, localVersion: xsd:long, webapiKey: xsd:string, onlyLeaf: xsd:boolean) -> catsList: ns0:ArrayOfCatinfotype, verKey: xsd:long, verStr: xsd:string
+            doGetCatsDataCount(countryId: xsd:int, localVersion: xsd:long, webapiKey: xsd:string, onlyLeaf: xsd:boolean) -> catsCount: xsd:int, verKey: xsd:long, verStr: xsd:string
+            doGetCatsDataLimit(countryId: xsd:int, localVersion: xsd:long, webapiKey: xsd:string, offset: xsd:int, packageElement: xsd:int, onlyLeaf: xsd:boolean) -> catsList: ns0:ArrayOfCatinfotype, verKey: xsd:long, verStr: xsd:string
+            doGetCountries(countryCode: xsd:int, webapiKey: xsd:string) -> countryArray: ns0:ArrayOfCountryinfotype
+            doGetDeals(sessionHandle: xsd:string, itemId: xsd:long, buyerId: xsd:int) -> dealsList: ns0:ArrayOfDealsstruct
+            doGetFilledPostBuyForms(sessionId: xsd:string, paymentType: xsd:int, userRole: xsd:int, fillingTimeFrom: xsd:long, fillingTimeTo: xsd:long) -> filledPostBuyForms: ns0:FilledPostBuyFormsStruct
+            doGetFreeDeliveryAmount(userId: xsd:int, countryId: xsd:int, webapiKey: xsd:string) -> freeDeliveryAmount: xsd:float, activeFlag: xsd:int
+            doGetItemFields(sessionId: xsd:string, itemId: xsd:long) -> itemFields: ns0:ArrayOfFieldsvalue, afterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct, additionalServicesGroup: xsd:string
+            doGetItemsImages(sessionHandle: xsd:string, itemsArray: ns0:ArrayOfItemgetimage, imageType: xsd:int) -> get_items_images_result: ns0:ArrayOfItemimagesstruct
+            doGetItemsInfo(sessionHandle: xsd:string, itemsIdArray: ns0:ArrayOfLong, getDesc: xsd:int, getImageUrl: xsd:int, getAttribs: xsd:int, getPostageOptions: xsd:int, getCompanyInfo: xsd:int, getProductInfo: xsd:int, getAfterSalesServiceConditions: xsd:int, getEan: xsd:int, getAdditionalServicesGroup: xsd:int) -> arrayItemListInfo: ns0:ArrayOfIteminfostruct, arrayItemsNotFound: ns0:ArrayOfLong, arrayItemsAdminKilled: ns0:ArrayOfLong
+            doGetItemsList(webapiKey: xsd:string, countryId: xsd:int, filterOptions: ns0:ArrayOfFilteroptionstype, sortOptions: ns0:SortOptionsType, resultSize: xsd:int, resultOffset: xsd:int, resultScope: xsd:int) -> itemsCount: xsd:int, itemsFeaturedCount: xsd:int, itemsList: ns0:ArrayOfItemslisttype, categoriesList: ns0:CategoriesListType, filtersList: ns0:ArrayOfFilterslisttype, filtersRejected: ns0:ArrayOfString
+            doGetMessageToBuyer(sessionId: xsd:string, itemId: xsd:long) -> messageToBuyer: ns0:MessageToBuyerStruct
+            doGetMyAddresses(sessionId: xsd:string) -> addressesInfo: ns0:ArrayOfAddressinfostruct
+            doGetMyBidItems(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int) -> bidItemsCounter: xsd:int, bidItemsList: ns0:ArrayOfBiditemstruct
+            doGetMyCurrentShipmentPriceType(sessionId: xsd:string) -> shipmentPriceTypeId: xsd:int
+            doGetMyData(sessionHandle: xsd:string) -> userData: ns0:UserDataStruct, invoiceData: ns0:InvoiceDataStruct, companyExtraData: ns0:CompanyExtraDataStruct, companySecondAddress: ns0:CompanySecondAddressStruct, pharmacyData: ns0:PharmacyDataStruct, alcoholData: ns0:AlcoholDataStruct, relatedPersons: ns0:RelatedPersonsStruct
+            doGetMyFutureItems(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, filterOptions: ns0:FutureFilterOptionsStruct, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int) -> futureItemsCounter: xsd:int, futureItemsList: ns0:ArrayOfFutureitemstruct
+            doGetMyIncomingPayments(sessionHandle: xsd:string, buyerId: xsd:int, itemId: xsd:long, transRecvDateFrom: xsd:long, transRecvDateTo: xsd:long, transPageLimit: xsd:int, transOffset: xsd:int, strictedSearch: xsd:int) -> payTransIncome: ns0:ArrayOfUserincomingpaymentstruct
+            doGetMyIncomingPaymentsRefunds(sessionHandle: xsd:string, buyerId: xsd:int, itemId: xsd:long, limit: xsd:int, offset: xsd:int) -> payTransIncomeRefunds: ns0:ArrayOfUserincomingpaymentrefundsstruct
+            doGetMyNotSoldItems(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, filterOptions: ns0:NotSoldFilterOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int) -> notSoldItemsCounter: xsd:int, notSoldItemsList: ns0:ArrayOfNotsolditemstruct
+            doGetMyNotWonItems(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int) -> notWonItemsCounter: xsd:int, notWonItemsList: ns0:ArrayOfNotwonitemstruct
+            doGetMyPayments(sessionId: xsd:string, sellerId: xsd:int, itemId: xsd:long, paymentTimeFrom: xsd:long, paymentTimeTo: xsd:long, pageSize: xsd:int, pageNumber: xsd:int, strictedSearch: xsd:int) -> payTransPayment: ns0:ArrayOfUserpaymentstruct
+            doGetMyPaymentsInfo(sessionId: xsd:string) -> paymentsInfo: ns0:PaymentsInfoStruct
+            doGetMyPaymentsRefunds(sessionHandle: xsd:string, sellerId: xsd:int, itemId: xsd:long, limit: xsd:int, offset: xsd:int) -> payTransPaymentRefunds: ns0:ArrayOfUserpaymentrefundsstruct
+            doGetMyPayouts(sessionHandle: xsd:string, transCreateDateFrom: xsd:long, transCreateDateTo: xsd:long, transPageLimit: xsd:int, transOffset: xsd:int) -> payTransPayout: ns0:ArrayOfUserpayoutstruct
+            doGetMyPayoutsDetails(sessionId: xsd:string, payoutId: xsd:int, limit: xsd:int, offset: xsd:int) -> paymentsCount: xsd:int, payments: ns0:ArrayOfPayoutpaymentsstruct, refundsFromCount: xsd:int, refundFrom: ns0:ArrayOfPayoutrefundfromstruct, refundsToCount: xsd:int, refundTo: ns0:ArrayOfPayoutrefundtostruct
+            doGetMySellItems(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, filterOptions: ns0:SellFilterOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int) -> sellItemsCounter: xsd:int, sellItemsList: ns0:ArrayOfSellitemstruct
+            doGetMySoldItems(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, filterOptions: ns0:SoldFilterOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int) -> soldItemsCounter: xsd:int, soldItemsList: ns0:ArrayOfSolditemstruct
+            doGetMyWonItems(sessionId: xsd:string, sortOptions: ns0:SortOptionsStruct, searchValue: xsd:string, categoryId: xsd:int, itemIds: ns0:ArrayOfLong, pageSize: xsd:int, pageNumber: xsd:int) -> wonItemsCounter: xsd:int, wonItemsList: ns0:ArrayOfWonitemstruct
+            doGetPaymentMethods(sessionId: xsd:string, itemIds: ns0:ArrayOfLong) -> paymentMethods: ns0:ArrayOfPaymentmethodstruct
+            doGetPostBuyData(sessionHandle: xsd:string, itemsArray: ns0:ArrayOfLong, buyerFilterArray: ns0:ArrayOfLong) -> itemsPostBuyData: ns0:ArrayOfItempostbuydatastruct
+            doGetPostBuyFormsDataForBuyers(sessionId: xsd:string, transactionsIdsArray: ns0:ArrayOfLong) -> postBuyFormDataForBuyers: ns0:ArrayOfPostbuyformforbuyersdatastruct
+            doGetPostBuyFormsDataForSellers(sessionId: xsd:string, transactionsIdsArray: ns0:ArrayOfLong) -> postBuyFormData: ns0:ArrayOfPostbuyformdatastruct
+            doGetPostBuyFormsIds(sessionId: xsd:string, filterOptions: ns0:ArrayOfFilteroptionstype, resultSize: xsd:int, resultOffset: xsd:int) -> formsCount: xsd:int, formsIds: ns0:ArrayOfLong, filtersList: ns0:ArrayOfFilterslisttype
+            doGetPostBuyItemInfo(sessionId: xsd:string, itemIds: ns0:ArrayOfLong) -> itemPostBuyFormInfo: ns0:ArrayOfPostbuyiteminfostruct
+            doGetRefundsDeals(sessionId: xsd:string, filterOptions: ns0:ArrayOfFilteroptionstype, sortOrder: xsd:string, resultSize: xsd:int, resultOffset: xsd:int) -> dealsCount: xsd:int, dealsList: ns0:ArrayOfRefundsdealslisttype, filtersList: ns0:ArrayOfFilterslisttype
+            doGetRefundsList(sessionId: xsd:string, filterOptions: ns0:ArrayOfFilteroptionstype, resultSize: xsd:int, resultOffset: xsd:int) -> refundsCount: xsd:int, refundsList: ns0:ArrayOfRefundlisttype, filtersList: ns0:ArrayOfFilterslisttype
+            doGetRefundsReasons(sessionId: xsd:string, dealId: xsd:int) -> reasonsCount: xsd:int, reasonsList: ns0:ArrayOfReasoninfotype
+            doGetRelatedItems(sessionId: xsd:string, itemIds: ns0:ArrayOfLong) -> relatedItems: ns0:RelatedItemsStruct
+            doGetSellFormFieldsForCategory(webapiKey: xsd:string, countryId: xsd:int, categoryId: xsd:int) -> sellFormFieldsForCategory: ns0:SellFormFieldsForCategoryStruct
+            doGetSessionHandleForWidget(webapiKey: xsd:string, countryCode: xsd:int) -> sessionHandle: xsd:string, serverTime: xsd:long
+            doGetShipmentData(countryId: xsd:int, webapiKey: xsd:string) -> shipmentDataList: ns0:ArrayOfShipmentdatastruct, localVersion: xsd:long
+            doGetShipmentDataForRelatedItems(sessionId: xsd:string, itemIds: ns0:ArrayOfLong) -> relatedItemsShipmentData: ns0:RelatedItemsShipmentDataStruct
+            doGetShipmentPriceTypes(countryId: xsd:int, webapiKey: xsd:string) -> shipmentPriceTypes: ns0:ArrayOfShipmentpricetypestruct
+            doGetShopsTags(sessionId: xsd:string) -> shopsTagsCount: xsd:int, shopsTags: ns0:ArrayOfShopstagtypestruct
+            doGetSiteJournal(sessionHandle: xsd:string, startingPoint: xsd:long, infoType: xsd:int) -> siteJournalArray: ns0:ArrayOfSitejournal
+            doGetSiteJournalDeals(sessionId: xsd:string, journalStart: xsd:long) -> siteJournalDeals: ns0:ArrayOfSitejournaldealsstruct
+            doGetSiteJournalDealsInfo(sessionId: xsd:string, journalStart: xsd:long) -> siteJournalDealsInfo: ns0:SiteJournalDealsInfoStruct
+            doGetSiteJournalInfo(sessionHandle: xsd:string, startingPoint: xsd:long, infoType: xsd:int) -> siteJournalInfo: ns0:SiteJournalInfo
+            doGetStatesInfo(countryCode: xsd:int, webapiKey: xsd:string) -> statesInfoArray: ns0:ArrayOfStateinfostruct
+            doGetSystemTime(countryId: xsd:int, webapiKey: xsd:string) -> serverTime: xsd:long
+            doGetTransactionsIDs(sessionHandle: xsd:string, itemsIdArray: ns0:ArrayOfLong, userRole: xsd:string, shipmentIdArray: ns0:ArrayOfLong) -> transactionsIdsArray: ns0:ArrayOfLong
+            doGetUserID(countryId: xsd:int, userLogin: xsd:string, userEmail: xsd:string, webapiKey: xsd:string) -> userId: xsd:int
+            doGetUserLogin(countryId: xsd:int, userId: xsd:int, webapiKey: xsd:string) -> userLogin: xsd:string
+            doLogin(userLogin: xsd:string, userPassword: xsd:string, countryCode: xsd:int, webapiKey: xsd:string, localVersion: xsd:long) -> sessionHandlePart: xsd:string, userId: xsd:long, serverTime: xsd:long
+            doLoginEnc(userLogin: xsd:string, userHashPassword: xsd:string, countryCode: xsd:int, webapiKey: xsd:string, localVersion: xsd:long) -> sessionHandlePart: xsd:string, userId: xsd:long, serverTime: xsd:long
+            doLoginWithAccessToken(accessToken: xsd:string, countryCode: xsd:int, webapiKey: xsd:string) -> sessionHandlePart: xsd:string, userId: xsd:long, serverTime: xsd:long
+            doMyAccount2(sessionHandle: xsd:string, accountType: xsd:string, offset: xsd:int, itemsArray: ns0:ArrayOfLong, limit: xsd:int) -> myaccountList: ns0:ArrayOfMyaccountstruct2
+            doMyAccountItemsCount(sessionHandle: xsd:string, accountType: xsd:string, itemsArray: ns0:ArrayOfLong) -> myaccountItemsCount: xsd:int
+            doMyBilling(sessionHandle: xsd:string) -> myBilling: xsd:string
+            doMyBillingItem(sessionHandle: xsd:string, itemId: xsd:long, option: xsd:string) -> entryFees: ns0:ArrayOfItembilling, endingFees: ns0:ArrayOfItembilling
+            doMyContact(sessionHandle: xsd:string, auctionIdList: ns0:ArrayOfLong, offset: xsd:int, desc: xsd:int) -> mycontactList: ns0:ArrayOfMycontactlist
+            doNewAuctionExt(sessionHandle: xsd:string, fields: ns0:ArrayOfFieldsvalue, itemTemplateId: xsd:int, localId: xsd:int, itemTemplateCreate: ns0:ItemTemplateCreateStruct, variants: ns0:ArrayOfVariantstruct, tags: ns0:ArrayOfTagnamestruct, afterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct, additionalServicesGroup: xsd:string) -> itemId: xsd:long, itemInfo: xsd:string, itemIsAllegroStandard: xsd:int
+            doQueryAllSysStatus(countryId: xsd:int, webapiKey: xsd:string) -> sysCountryStatus: ns0:ArrayOfSysstatustype
+            doQuerySysStatus(sysvar: xsd:int, countryId: xsd:int, webapiKey: xsd:string) -> info: xsd:string, verKey: xsd:long
+            doRemoveFromBlackList(sessionHandle: xsd:string, usersIdArray: ns0:ArrayOfLong) -> blackListResult: ns0:ArrayOfBlacklistresstruct
+            doRequestCancelBid(sessionHandle: xsd:string, requestItemId: xsd:long, requestCancelReason: xsd:string) -> requestValue: xsd:int
+            doRequestPayout(sessionId: xsd:string) -> requestPayout: ns0:RequestPayoutStruct
+            doRequestSurcharge(sessionHandle: xsd:string, transactionId: xsd:long, surchargeValue: xsd:float, surchargeMessageToBuyer: xsd:string) -> surchargeResult: xsd:int
+            doSellSomeAgain(sessionHandle: xsd:string, sellItemsArray: ns0:ArrayOfLong, sellStartingTime: xsd:long, sellAuctionDuration: xsd:int, sellOptions: xsd:int, localIds: ns0:ArrayOfInt, sellProlongOptions: xsd:int) -> itemsSellAgain: ns0:ArrayOfStructsellagain, itemsSellFailed: ns0:ArrayOfStructsellfailed, itemsSellNotFound: ns0:ArrayOfLong
+            doSellSomeAgainInShop(sessionHandle: xsd:string, sellItemsArray: ns0:ArrayOfLong, sellStartingTime: xsd:long, sellShopDuration: xsd:int, sellShopOptions: xsd:int, sellProlongOptions: xsd:int, sellShopCategory: xsd:long, localIds: ns0:ArrayOfInt) -> itemsSellAgain: ns0:ArrayOfStructsellagain, itemsSellFailed: ns0:ArrayOfStructsellfailed, itemsSellNotFound: ns0:ArrayOfLong
+            doSendEmailToUser(sessionHandle: xsd:string, mailToUserItemId: xsd:long, mailToUserReceiverId: xsd:long, mailToUserSubjectId: xsd:int, mailToUserOption: xsd:int, mailToUserMessage: xsd:string) -> mailToUserReceiverId: xsd:long, mailToUserResult: xsd:string
+            doSendPostBuyForm(sessionId: xsd:string, newPostBuyFormSeller: ns0:ArrayOfNewpostbuyformsellerstruct, newPostBuyFormCommon: ns0:NewPostBuyFormCommonStruct) -> postBuyForm: ns0:PostBuyFormStruct
+            doSendRefundForm(sessionId: xsd:string, dealId: xsd:int, reasonId: xsd:int, refundQuantity: xsd:int) -> refundId: xsd:int
+            doSetFreeDeliveryAmount(sessionId: xsd:string, activeFlag: xsd:int, freeDeliveryAmount: xsd:float) -> responseStatus: xsd:boolean
+            doSetShipmentPriceType(sessionId: xsd:string, shipmentPriceTypeId: xsd:int) -> operationResult: xsd:int
+            doShowItemInfoExt(sessionHandle: xsd:string, itemId: xsd:long, getDesc: xsd:int, getImageUrl: xsd:int, getAttribs: xsd:int, getPostageOptions: xsd:int, getCompanyInfo: xsd:int, getProductInfo: xsd:int, getAfterSalesServiceConditions: xsd:int, getEan: xsd:int, getAdditionalServicesGroup: xsd:int) -> itemListInfoExt: ns0:ItemInfoExt, itemCatPath: ns0:ArrayOfItemcatlist, itemImgList: ns0:ArrayOfItemimagelist, itemAttribList: ns0:ArrayOfAttribstruct, itemPostageOptions: ns0:ArrayOfPostagestruct, itemPaymentOptions: ns0:ItemPaymentOptions, itemCompanyInfo: ns0:CompanyInfoStruct, itemProductInfo: ns0:ProductStruct, itemVariants: xsd:string, itemAfterSalesServiceConditions: ns0:AfterSalesServiceConditionsStruct, itemAdditionalServicesGroup: xsd:string
+            doShowUser(webapiKey: xsd:string, countryId: xsd:int, userId: xsd:long, userLogin: xsd:string) -> userId: xsd:long, userLogin: xsd:string, userCountry: xsd:int, userCreateDate: xsd:long, userLoginDate: xsd:long, userRating: xsd:int, userIsNewUser: xsd:int, userNotActivated: xsd:int, userClosed: xsd:int, userBlocked: xsd:int, userTerminated: xsd:int, userHasPage: xsd:int, userIsSseller: xsd:int, userIsEco: xsd:int, userPositiveFeedback: ns0:ShowUserFeedbacks, userNegativeFeedback: ns0:ShowUserFeedbacks, userNeutralFeedback: ns0:ShowUserFeedbacks, userJuniorStatus: xsd:int, userHasShop: xsd:int, userCompanyIcon: xsd:int, userSellRatingCount: xsd:int, userSellRatingAverage: ns0:ArrayOfSellratingaveragestruct, userIsAllegroStandard: xsd:int, userIsB2cSeller: xsd:int
+            doVerifyItem(sessionHandle: xsd:string, localId: xsd:int) -> itemId: xsd:long, itemListed: xsd:int, itemStartingTime: xsd:long
+

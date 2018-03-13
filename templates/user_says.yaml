@@ -25,37 +25,36 @@ Declare-category:
     - I want new smartphone
     - Looking for laptop
     - I am looking for a bike
-    # - smartphone
-    # - laptop
-    # - bike
+    - smartphone
+    - laptop
+    - bike
   Annotations:
     - something: search_category
-    # - smartphone: search_category
-    # - laptop: search_category
-    # - bike: search_category
+    - smartphone: search_category
+    - laptop: search_category
+    - bike: search_category
 
 Confirm-category:
   UserSays:
     - yes
     - no
   Annotations:
-    - yes: answer
-    - no: answer
+    - yes: category_confirmation
+    - no: category_confirmation
 
 SearchAnything:
   UserSays:
-    - search something
-    - find something
     - find me something
-    # - search phone
-    # - search smartphone
-    # - search galaxy
-    # - search ajfon
-    # - search xperia
+    - find me something
+    - search for something
+    - search smartphone
+    - search galaxy
+    - search ajfon
+    - search xperia
   Annotations:
     - something: sys.any
-  # - phone: search_item
-  # - smartphone: search_item
-  # - galaxy: search_item
-  # - ajfon: search_item
-  # - xperia: search_item
+    - phone: sys.any
+    - smartphone: sys.any
+    - galaxy: sys.any
+    - ajfon: sys.any
+    - xperia: sys.any
