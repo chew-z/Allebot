@@ -1,5 +1,19 @@
 runtime: python
 env: flex
+# Trick #1 - for deployment downgrade default two to one instance (saves $)
+manual_scaling:
+  instances: 1
+# Trick #2 - downgrade dfault g1-small to f1-micro
+resources:
+ cpu: .5
+ memory_gb: 0.18
+ disk_size_gb: 10
+# Trick #3
+# gcloud app deploy --version dev
+# when done testing SWITCH OFF
+# gcloud app version stop dev
+# and SWITCH ON
+# gcloud app version start dev
 
 # entrypoint: python main.py
 entrypoint: gunicorn -b :$PORT main:app
