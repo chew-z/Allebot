@@ -27,7 +27,9 @@ allegro_conf = config['Allegro']
 countryId = 1
 webAPI = allegro_conf['WEB_API_KEY']
 url = allegro_conf['WEB_API_WSDL']
-client = Client(url)
+# Can't use sql cache on AppEngine
+# https://github.com/mvantellingen/python-zeep/issues/243
+client = Client(url, transport=Transport(cache=None))
 
 
 app = Flask(__name__)
