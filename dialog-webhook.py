@@ -9,7 +9,7 @@ import json
 import os
 from pathlib import Path
 config = configparser.ConfigParser()
-config.read('allegro.conf')
+config.read('allebot.conf')
 google_conf = config['Google']
 os.environ['DEV_ACCESS_TOKEN'] = google_conf['DEV_ACCESS_TOKEN']
 os.environ['CLIENT_ACCESS_TOKEN'] = google_conf['CLIENT_ACCESS_TOKEN']
@@ -52,9 +52,6 @@ def alleKategorieGet():
     logging.info('Categories saved to kategorie.json')
 
   return(j)
-
-
-
 
 
 def alleKategoriaNazwa(categories, id):
