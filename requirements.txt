@@ -1,5 +1,6 @@
-# apiai
+apiai
 configparser
+google-cloud-logging
 # fbmq
 flask
 flask-assistant
