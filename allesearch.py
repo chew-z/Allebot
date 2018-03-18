@@ -4,9 +4,15 @@ from zeep.transports import Transport
 from pathlib import Path
 import configparser
 import json
+import logging
 
-from allehelp import _debug, _info, _error
 from allehelp import isAppEngine
+
+logger = logging.getLogger('allebot')
+if not isAppEngine():
+    logger.addHandler(logging.StreamHandler())
+    if logger.level == logging.NOTSET:
+        logger.setLevel(logging.INFO)
 
 config = configparser.ConfigParser()
 config.read('allebot.conf')
@@ -31,17 +37,17 @@ def alleKategorieGet():
   '''
   if Path("kategorie.json").is_file():
     # file exists
-    _debug('kategorie.json exists')
+    logger.debug('kategorie.json exists')
     j = json.load(open('kategorie.json'))
   else:
     # call WebAPI
-    _debug('Couldn\'t find kategorie.json - getting from WebAPI')
+    logger.debug('Couldn\'t find kategorie.json - getting from WebAPI')
     wynik = client.service.doGetCatsData(webapiKey=webAPI, countryId=countryId, onlyLeaf=False)
     categories = wynik['catsList']['item']
     j = [{"catId": i['catId'], "catName": i['catName'], "catParent": i['catParent'], "catPosition": i['catPosition']} for i in categories]
     with open('kategorie.json', 'w') as outfile:
       json.dump(j, outfile)
-    _debug('Categories saved to kategorie.json')
+    logger.debug('Categories saved to kategorie.json')
 
   return(j)
 
@@ -66,7 +72,7 @@ def alleKategorieBranch(categories, id):
     return ''
   else:
     # continue recursive pattern following the branch
-    _debug("itemId {} - up - {}".format(id, up[0]))
+    logger.debug("itemId {} - up - {}".format(id, up[0]))
     return "{}({}) - {}".format(up[0]['catName'], up[0]['catId'], alleKategorieBranch(categories, up[0]['catParent']))
 
 
@@ -88,7 +94,7 @@ def alleCreateFilters(filtersList):
   filterArrayPlaceholder = client.get_type('ns0:ArrayOfFilteroptionstype')
   filters = filterArrayPlaceholder()
   for key, value in filtersList.items():
-      _info("filters: {} = {}".format(key, value))
+      logger.info("filters: {} = {}".format(key, value))
       optionsArrayPlaceholder = client.get_type('ns0:FilterOptionsType')
       option = optionsArrayPlaceholder()
       AOSPlaceholder = client.get_type('ns0:ArrayOfString')
@@ -100,7 +106,7 @@ def alleCreateFilters(filtersList):
       option['filterValueId'] = AOS
       filters['item'].append(option)           
       
-  _debug("ArrayOfFilteroptionstype object: {}".format(filters))
+  logger.debug("ArrayOfFilteroptionstype object: {}".format(filters))
   
   return filters 
 
@@ -115,20 +121,20 @@ def alleSearch(q, category, size=5):
   wynik = client.service.doGetItemsList(
       webAPI, countryId, filterOptions=filters, resultScope=3, resultSize=size)
   
-  _debug("Otrzymano %d wynikow." % wynik.itemsCount)
+  logger.debug("Otrzymano %d wynikow." % wynik.itemsCount)
   # TODO - figure out how to display filters....
-  _debug("filtersList: {}".format(wynik.filtersList))
-  _debug("filtersRejected: {}".format(wynik.filtersRejected))
-  _debug("categoriesList: {}".format(wynik.categoriesList))
+  logger.debug("filtersList: {}".format(wynik.filtersList))
+  logger.debug("filtersRejected: {}".format(wynik.filtersRejected))
+  logger.debug("categoriesList: {}".format(wynik.categoriesList))
 
   _results = list()
   if wynik.itemsList is not None:
       # get ready list of categories
       listOfCategories = alleKategorieGet()
       for item in wynik.itemsList['item']:
-          _debug("{} --- {} --- {}".format(item.itemTitle,
+          logger.debug("{} --- {} --- {}".format(item.itemTitle,
                                                  item.timeToEnd, item.priceInfo['item'][0]['priceValue']))
-          _debug('https://allegro.pl/i' + str(item.itemId) + '.html')
+          logger.debug('https://allegro.pl/i' + str(item.itemId) + '.html')
           typAukcji = ''
           if item.priceInfo['item'][0]['priceType'] == 'buyNow':
               typAukcji = 'kup teraz'
@@ -146,5 +152,5 @@ def alleSearch(q, category, size=5):
               'zdjęcie': item.photosInfo['item'][0]['photoUrl']
           }
           _results.append(d)
-  _debug("{}".format(_results))
+  logger.debug("{}".format(_results))
   return(_results)

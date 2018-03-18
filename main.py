@@ -4,7 +4,7 @@ import logging
 import os
 
 from allesearch import alleSearch
-from allehelp import _debug, _info, _error, isAppEngine, use_logging_handler
+from allehelp import isAppEngine
 
 from flask import Flask, request
 from flask.json import jsonify
@@ -16,7 +16,7 @@ os.environ['DEV_ACCESS_TOKEN'] = config['Google']['DEV_ACCESS_TOKEN']
 os.environ['CLIENT_ACCESS_TOKEN'] = config['Google']['CLIENT_ACCESS_TOKEN']
 from flask_assistant import Assistant, ask, tell, build_item
 from flask_assistant import context_manager
-from flask_assistant import logger
+
 
 app = Flask(__name__)
 # https://stackoverflow.com/questions/36378441/
@@ -26,8 +26,11 @@ app.config['ASSIST_ACTIONS_ON_GOOGLE'] = True
 
 assist = Assistant(app, route='/')
 
-if isAppEngine():
-    use_logging_handler()
+logger = logging.getLogger('allebot')
+if not isAppEngine():
+    logger.addHandler(logging.StreamHandler())
+    if logger.level == logging.NOTSET:
+        logger.setLevel(logging.INFO)
 
 
 @assist.action('Default Welcome Intent')
@@ -54,7 +57,7 @@ def search_category(search_category):
 @assist.action('Confirm-category')
 def confirm_category(category_confirmation):
     category = context_manager.get_param('search_context', 'search_category')
-    _debug("Confirm-category: category: {}".format(category))
+    logger.debug("Confirm-category: category: {}".format(category))
     if 'n' in category_confirmation:
         return ask('I dont think I understood. What do you want to look for?').suggest(
         'smartphone', 'laptop', 'bike')
@@ -65,7 +68,7 @@ def confirm_category(category_confirmation):
 @assist.action('SearchAnything', mapping={'search_item': 'sys.any'})
 def action_func(search_item):
     category = context_manager.get_param('search_context', 'search_category')
-    _debug('search_category: --{}--'.format(category))
+    logger.debug('search_category: --{}--'.format(category))
     sc = 0
     if category == 'bike':
         sc = 3919
@@ -95,18 +98,18 @@ def action_func(search_item):
 
 @app.route('/hello')
 def test_page():
-    _info('/hello')
+    logger.info('/hello')
     return "Hello World from dialog-webhook.py"
 
 
 @app.route('/search')
 def search():
-    _info('/search')
+    logger.info('/search')
     query = request.args.get('q', default = 'iphone', type = str)
     category = request.args.get('cat', default = 48978, type = int)
     # condition = request.args.get('condition', default = 'used', type = str)
     size = request.args.get('size', default = 10, type = int)
-    _debug("{} {} {}".format(query, category, size))
+    logger.debug("{} {} {}".format(query, category, size))
     result = alleSearch(query, category, size)
     
     return(jsonify(result))
@@ -136,6 +139,6 @@ if __name__ == '__main__':
     # Turn off default zeep.transports DEBUG logging
     logging.getLogger('zeep.transports').setLevel(logging.INFO)
     logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
-    _info('--- logging started ---.')
+    logging.info('--- logger.started ---.')
     app.run(port=8080)
-    _info('--- logging finished ---.')
+    logging.info('--- logger.finished ---.')
