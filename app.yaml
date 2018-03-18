@@ -3,25 +3,26 @@ env: flex
 # Trick #1 - for deployment downgrade default two to one instance (saves $)
 # manual instance is always spinning - not effective
 # https://groups.google.com/forum/#!topic/google-appengine/uaiyicw6rhg
-# manual_scaling:
-    #  instances: 1
-automatic_scaling:
-    min_num_instances: 1
-    max_num_instances: 2
+manual_scaling:
+    instances: 1
+# automatic_scaling:
+#    min_num_instances: 1
+#    max_num_instances: 2
 # Trick #2 - downgrade default resources
 resources:
     cpu: .5
-    memory_gb: 0.9
+    memory_gb: 0.75
     disk_size_gb: 10
 # Trick #3
 # gcloud app deploy --version dev
 # when done testing SWITCH OFF
-# gcloud app version stop dev
+# gcloud app versions stop dev
 # and SWITCH ON
-# gcloud app version start dev
+# gcloud app versions start dev
 
 # entrypoint: python main.py
-entrypoint: gunicorn --log-level=debug -b :$PORT main:app
+# entrypoint: gunicorn --log-level=debug -b :$PORT main:app
+entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
     python_version: 3
