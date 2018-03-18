@@ -21,7 +21,7 @@ resources:
 # gcloud app version start dev
 
 # entrypoint: python main.py
-entrypoint: gunicorn -b :$PORT main:app
+entrypoint: gunicorn --log-level=debug -b :$PORT main:app
 
 runtime_config:
     python_version: 3
