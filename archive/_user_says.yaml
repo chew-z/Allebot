@@ -1,42 +1,56 @@
+# Template for defining UserSays examples
+
+# give-color-intent:
+
+#  UserSays:
+#    - My color is blue
+#    - red is my favorite color
+
+#  Annotations:
+#    - blue: sys.color     # maps param value -> entity
+
+#  Events:
+#    - event1              # adds a triggerable event named 'event1' to the intent
+
+
 Welcome:
   UserSays:
-  - null
-  - null
+  -
+  -
   Annotations:
-  - null
-  - null
+  - 
+  - 
   Events:
-  - null
+  - 
 Start:
   UserSays:
   - I want new smartphone
   - looking for laptop
   - I am looking for a bike
   Annotations:
-  - smartphone: search_category
-  - laptop: search_category
-  - bike: search_category
+  - 
+  - 
   Events:
-  - null
+  - 
 Restart:
   UserSays:
   - start over
   - restart
   Annotations:
-  - null
-  - null
+  - 
+  - 
   Events:
-  - null
+  - 
 End:
   UserSays:
   - go to hell
   - get lost
   - bye
   Annotations:
-  - null
-  - null
+  - 
+  - 
   Events:
-  - null
+  - 
 Declare_Category:
   UserSays:
   - I want new smartphone
@@ -44,13 +58,14 @@ Declare_Category:
   - I am looking for a bike
   - smartphone
   - laptop
-  - bike
+  - bike 
   Annotations:
+  - something: search_category
   - smartphone: search_category
   - laptop: search_category
   - bike: search_category
   Events:
-  - null
+  - 
 Confirm_Category:
   UserSays:
   - yes
@@ -59,9 +74,10 @@ Confirm_Category:
   - yes: category_confirmation
   - no: category_confirmation
   Events:
-  - null
+  - 
 Search_Anything:
   UserSays:
+  - find me something
   - find me something
   - search for something
   - search smartphone
@@ -76,12 +92,17 @@ Search_Anything:
   - ajfon: sys.any
   - xperia: sys.any
   Events:
-  - null
+  - 
 Select_Item:
   UserSays:
-  - option one
+  - show me option one
+  - show me second
+  - I like option three
+  - option four
   Annotations:
   - one: sys.number
+  - second: sys.number
+  - three: sys.number
+  - four: sys.number
   Events:
-  - null
-
+  - 

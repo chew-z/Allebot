@@ -1,0 +1,20 @@
+# FRIENDLY WARNING
+# flask_assitant and underlaying packages are very sensitive to 'proper' yaml formatting
+# as a result of some odd space and indent you can get wrong intents and entities
+# the chatbot will not be able to recognize user phrases and beat about the bushes
+# and you will never notice or know the reason
+# If in doubt you mus check generated json files in schema folder and of course in Dialogflow console
+# I am using YAML Formatter plugin in Vim but it could also get queer
+# underlying pyyaml will change yes/no to true/false and format useful lists into yaml lists.
+# It will also remove all comments like this
+# YOU HAVE BEEN WARNED
+#
+# Template file for entities
+search_category:
+ - smartphone: ['smartphone', 'iphone', 'iphone 6', 'iphone 8x', 'ajfon', 'xz', 'xz premium', 'sony xperia', 's7', 's8', 'samsung galaxy', 'samsung s8']
+ - laptop: ['mac', 'macbook pro', 'laptop', 'lenovo']
+ - bike: ['bike', 'rower', 'bianci', 'koga miyata', 'peugeot']
+
+category_confirmation:
+  - yes: ['yeah', 'yes', 'right']
+  - no: ['no', 'nope']
