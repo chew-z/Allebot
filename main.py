@@ -48,7 +48,7 @@ def start_conversation(search_category):
 @assist.action('Restart')
 def restart_conversation():
     context_manager.add('search_context', lifespan=0)
-    context_manager.add('search_results', lifespan=0)
+    # context_manager.add('search_results', lifespan=0)
     return ask('OK! New search').suggest(
         'I want new smartphone', 'I am looking for a laptop', 'Looking for bike')
 
@@ -108,8 +108,8 @@ def search_anything(search_item):
     resp = ask("Let's see what is available")
     searchResult = alleSearch("{}".format(search_item), category=sc, size=5)
     logger.debug("{}".format(searchResult))
-    context_manager.add('search_results', lifespan=5)
-    context_manager.set('search_results', 'search_result', searchResult)
+    # context_manager.add('search_results', lifespan=5)
+    context_manager.set('search_context', 'search_result', searchResult)
     # Create a list with a title
     mylist = resp.build_list('Results')
     i = 0
@@ -130,17 +130,17 @@ def search_anything(search_item):
 def select_item(number):
     logger.debug("{}".format(number))
     try:
-        searchResult = context_manager.get_param('search_results', 'search_result')
+        searchResult = context_manager.get_param('search_context', 'search_result')
     except KeyError:
-        return ask('Got KeyError for search_results context').suggest('start over')
+        return ask('Got KeyError for search_context context').suggest('start over')
     # logger.debug("{}".format(searchResult))
-    item = searchResult[int(number)]
+    item = searchResult[int(number) - 1]
     logger.debug("{}".format(item))
-    resp = tell("Here's your choice {}".format(number))
-    # resp.card(text='{}'.format(item['cena']),
-    #           title='{} zł {}'.format(item['cena'], item['aukcja']),
-    #           img_url='{}'.format(item['zdjęcie'])
-    #           )
+    resp = ask("Here's your choice {}".format(number))
+    resp.card(text='{}'.format(item['cena']),
+              title='{} zł {}'.format(item['cena'], item['aukcja']),
+              img_url='{}'.format(item['zdjęcie'])
+              ).suggest('start over')
 
     return resp
 
