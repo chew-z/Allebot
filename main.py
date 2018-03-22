@@ -129,7 +129,10 @@ def search_anything(search_item):
 @assist.action('Select_Item', mapping={'number': 'sys.number'})
 def select_item(number):
     logger.debug("{}".format(number))
-    searchResult = context_manager.get_param('search_results', 'search_result')
+    try:
+        searchResult = context_manager.get_param('search_results', 'search_result')
+    except KeyError:
+        return ask('Got KeyError for search_results context').suggest('start over')
     # logger.debug("{}".format(searchResult))
     item = searchResult[int(number)]
     logger.debug("{}".format(item))
